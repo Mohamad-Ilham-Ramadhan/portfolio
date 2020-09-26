@@ -10,8 +10,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    top: 0,
     position: "fixed",
+    top: 0,
+    left: 0,
     "& .indicator": {
       width: 12,
       height: 12,

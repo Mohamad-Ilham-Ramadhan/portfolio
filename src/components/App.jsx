@@ -8,9 +8,12 @@ import Home from "./Home";
 const useStyles = makeStyles((theme) => ({
   "@global": {
     body: {
-      height: "100vh",
       backgroundImage: `linear-gradient(to right, ${theme.palette.neutral.darkBlue}, ${theme.palette.neutral.veryDarkBlue})`,
     },
+  },
+  root: {
+    paddingLeft: 100,
+    paddingRight: 100,
   },
 }));
 

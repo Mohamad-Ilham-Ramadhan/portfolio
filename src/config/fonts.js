@@ -88,11 +88,11 @@ const poppins400 = {
 };
 
 const poppins600 = {
-  fontFamily: "Nunito Sans",
+  fontFamily: "Poppins",
   fontStyle: "normal",
   fontWeight: 600,
   src: `url('${poppins600Eot}'),
-        local('Nunito Sans SemiBold'), local('poppins-SemiBold'),
+        local('Poppins SemiBold'), local('poppins-SemiBold'),
         url('${poppins600Eot}?#iefix') format('embedded-opentype'),
         url('${poppins600Woff2}') format('woff2'),
         url('${poppins600Woff}') format('woff'),

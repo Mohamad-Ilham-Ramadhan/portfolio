@@ -3,14 +3,30 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "100%",
-    "& ul": {
-      display: "block",
-      width: "100%",
-    },
+    writingMode: "vertical-lr",
+    top: 0,
+    right: 0,
+    width: 100,
+    height: "100vh",
+    display: "flex",
+    position: "fixed",
+    alignItems: "center",
+    justifyContent: "center",
+
     "& li": {
       display: "inline-block",
-      marginRight: 24,
+      marginBottom: 72,
+      "&:last-child": {
+        marginBottom: 0,
+      },
+
+      "& a": {
+        color: "white",
+        textDecoration: "none",
+        fontSize: 13,
+        fontWeight: 300,
+        textTransform: "uppercase",
+      },
     },
   },
 }));
@@ -18,18 +34,16 @@ const useStyles = makeStyles((theme) => ({
 export default function NabarRight() {
   const styles = useStyles();
   return (
-    <div className={styles.root}>
-      <ul>
-        <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#">Portfolio</a>
-        </li>
-        <li>
-          <a href="#">About me</a>
-        </li>
-      </ul>
-    </div>
+    <nav className={styles.root}>
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#">Portfolio</a>
+      </li>
+      <li>
+        <a href="#">About me</a>
+      </li>
+    </nav>
   );
 }

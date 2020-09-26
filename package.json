@@ -1,0 +1,47 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "animejs": "^3.2.0",
+    "axios": "^0.20.0",
+    "clsx": "^1.1.1",
+    "jss": "^10.3.0",
+    "jss-plugin-expand": "^10.3.0",
+    "jss-preset-default": "^10.3.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "react-router-dom": "^5.2.0",
+    "react-transition-group": "^4.4.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "simple-parallax-js": "^5.6.2",
+    "uuid": "^8.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.3",
+    "css-loader": "^4.2.1",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.10.0",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "author": "Mohamad Ilham Ramadhan",
+  "license": "ISC"
+}

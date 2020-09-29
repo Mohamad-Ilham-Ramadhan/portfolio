@@ -90,6 +90,7 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
       textAlign: "center",
       marginBottom: 16,
+      fontWeight: 200,
     },
   },
 }));

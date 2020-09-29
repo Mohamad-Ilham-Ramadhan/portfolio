@@ -4,10 +4,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import NavbarLeft from "./NavbarLeft";
 import NavbarRight from "./NavbarRight";
 import Home from "./Home";
+import Projects from "./Projects";
 
 const useStyles = makeStyles((theme) => ({
   "@global": {
     body: {
+      color: "white",
       backgroundImage: `linear-gradient(to right, ${theme.palette.neutral.darkBlue}, ${theme.palette.neutral.veryDarkBlue})`,
     },
   },
@@ -25,6 +27,7 @@ export default function App() {
       <NavbarLeft />
       <NavbarRight />
       <Home />
+      <Projects />
     </div>
   );
 }

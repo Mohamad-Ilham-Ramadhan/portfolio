@@ -71,7 +71,7 @@ export default function Projects() {
         className={styles.swiper}
         spaceBetween={50}
         slidesPerView={1}
-        // navigation
+        navigation
         // watchSlidesProgress
         virtualTranslate
         onSlideNextTransitionStart={(swiper) => {

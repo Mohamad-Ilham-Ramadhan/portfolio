@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",
     paddingTop: 80,
+    paddingBottom: 80,
   },
   heading: {
     marginBottom: 56,

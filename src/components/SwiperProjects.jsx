@@ -144,6 +144,7 @@ export default function SwiperProjects({ className }) {
       className={clsx(styles.swiper, className)}
       spaceBetween={50}
       slidesPerView={1}
+      grabCursor
       navigation={{
         prevEl: ".swiper-button-prev",
         nextEl: ".swiper-button-next",
@@ -193,7 +194,6 @@ export default function SwiperProjects({ className }) {
         }
       }}
       onSlideNextTransitionStart={(swiper) => {
-        console.log("onSlideNextTransitionStart");
         // current slide
         swiper.slides[swiper.previousIndex].querySelector(
           ".img-desktop"
@@ -208,9 +208,6 @@ export default function SwiperProjects({ className }) {
         const imgMobileNext = swiper.slides[swiper.activeIndex].querySelector(
           ".img-mobile"
         );
-        // put on the queue position
-        // imgDesktopNext.style.transform = "translateY(115%)";
-        // imgMobileNext.style.transform = "translateY(-115%)";
         imgDesktopNext.style.transition = "transform 300ms";
         imgMobileNext.style.transition = "transform 300ms";
         // put on the center
@@ -218,7 +215,6 @@ export default function SwiperProjects({ className }) {
         imgMobileNext.style.transform = "translateY(0%)";
       }}
       onSlidePrevTransitionStart={(swiper) => {
-        console.log("onSlidePrevTransitionStart ==>", swiper);
         swiper.slides[swiper.previousIndex].querySelector(
           ".img-desktop"
         ).style.transform = "translateY(115%)";

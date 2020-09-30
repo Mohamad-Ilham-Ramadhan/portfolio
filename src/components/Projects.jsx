@@ -1,6 +1,3 @@
-// taroh semua slide prev pada posisinya bukan cuma closest slide prev
-// begitu juga dengan next
-
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -12,6 +9,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
+import arrowNext from "../images/arrow-next.svg";
+import arrowPrev from "../images/arrow-prev.svg";
 import slideImg from "../images/slide-img.svg";
 import slideDesktop1 from "../images/slide-desktop.svg";
 import slideMobile1 from "../images/slide-mobile.svg";
@@ -31,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 100,
   },
   swiper: {
+    overflow: "visible",
+    "& .swiper-wrapper": {
+      overflow: "hidden",
+    },
     "& .swiper-slide": {
       display: "flex",
       justifyContent: "center",
@@ -44,14 +47,50 @@ const useStyles = makeStyles((theme) => ({
     "& .img-desktop": {
       marginRight: 40,
     },
-    "& .swiper-slide-active": {},
-  },
-  coba: {
-    marginTop: 200,
-    "& .box": {
-      width: 100,
-      height: 100,
-      background: "tomato",
+    "& .swiper-controls": {
+      position: "relative",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      minHeight: 50,
+      marginTop: 72,
+      paddingLeft: 140,
+      paddingRight: 140,
+    },
+    "& .swiper-button": {
+      position: "relative",
+      height: 85,
+      width: 85,
+      borderRadius: "50%",
+      "&::after": {
+        content: "''",
+      },
+      "&.swiper-button-prev": {
+        backgroundColor: "hsla(240, 22%, 22%, 1)",
+        "& img": {
+          marginRight: 8,
+        },
+      },
+      "&.swiper-button-next": {
+        backgroundColor: "hsla(240, 22%, 17%, 1)",
+        "& img": {
+          marginLeft: 8,
+        },
+      },
+    },
+    "& .swiper-pagination": {
+      position: "unset",
+      "& .swiper-pagination-bullet": {
+        width: 13,
+        height: 13,
+        marginLeft: 8,
+        marginRight: 8,
+        backgroundColor: "white",
+        opacity: 1,
+        "&.swiper-pagination-bullet-active": {
+          backgroundColor: theme.palette.primary.main,
+        },
+      },
     },
   },
 }));
@@ -76,14 +115,6 @@ function getSliderPrev(swiper) {
 
 export default function Projects() {
   const styles = useStyles();
-  const [lastTranslate, setLastTranslate] = useState(0);
-  function onGeser() {
-    anime({
-      targets: ".box",
-      translateY: ["-100%", "30%"],
-      duration: 3000,
-    });
-  }
   return (
     <section className={styles.root}>
       <Heading className={styles.heading}>Projects</Heading>
@@ -91,10 +122,15 @@ export default function Projects() {
         className={styles.swiper}
         spaceBetween={50}
         slidesPerView={1}
-        // speed={1000}
-        navigation
-        pagination={{ clickable: true }}
-        // watchSlidesProgress
+        navigation={{
+          prevEl: ".swiper-button-prev",
+          nextEl: ".swiper-button-next",
+        }}
+        pagination={{
+          el: ".swiper-pagination",
+          type: "bullets",
+          clickable: true,
+        }}
         virtualTranslate
         onSetTransition={(swiper, transition) => {}}
         onSlideChange={(swiper) => {
@@ -301,6 +337,15 @@ export default function Projects() {
           <img className="img-desktop" src={slideDesktop4} alt="" />
           <img className="img-mobile" src={slideMobile4} alt="" />
         </SwiperSlide>
+        <div className="swiper-controls">
+          <div className="swiper-button swiper-button-prev">
+            <img className=".MuiButton-label" src={arrowPrev} alt="" />
+          </div>
+          <div className="swiper-pagination"></div>
+          <div className="swiper-button swiper-button-next">
+            <img className=".MuiButton-label" src={arrowNext} alt="" />
+          </div>
+        </div>
       </Swiper>
     </section>
   );

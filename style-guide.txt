@@ -15,6 +15,10 @@ const veryDarkBlue = 'hsla(240, 26%, 7%, 1)';
 const bodyBackground = linear-gradient(to right, darkBlue, veryDarkBlue);
 const detailPreview = linear-gradient(to right, hsla(240, 22%, 17%, 1), hsla(240, 21%, 13%, 1));
 
+## backgrounds
+const next = 'hsla(240, 21%, 13%, 1)';
+const prev = 'hsla(240, 22%, 17%, 1)';
+
 ### Typography:
   - font-family = 'Poppins'
 ## Nav links

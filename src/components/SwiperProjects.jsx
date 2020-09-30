@@ -1,7 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
-
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import IconVisitWeb from "./icons/IconVisitWeb";
+import IconFacebook from "./icons/IconFacebook";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from "swiper";
@@ -27,6 +32,32 @@ const useStyles = makeStyles((theme) => ({
     overflow: "visible",
     "& .swiper-wrapper": {
       overflow: "hidden",
+    },
+    "& .project-title": {
+      position: "absolute",
+      top: 69,
+      zIndex: 20,
+      fontSize: 72,
+      fontWeight: 700,
+    },
+    "& .project-actions": {
+      position: "absolute",
+      bottom: "34%",
+      zIndex: 100,
+    },
+    "& .project-actions-button": {
+      borderRadius: 50,
+      fontSize: "1rem",
+      fontWeight: 700,
+      padding: [6, 24],
+      background: "white",
+      marginRight: 16,
+      "& span": {
+        marginRight: 6,
+      },
+      "& .icon-visit": {
+        fontSize: 20,
+      },
     },
     "& .swiper-slide": {
       display: "flex",
@@ -308,6 +339,38 @@ export default function SwiperProjects({ className }) {
         });
       }}
     >
+      <Typography className="project-title" variant="h3">
+        Link Shortening
+      </Typography>
+      <div className="project-actions">
+        <Button
+          className="project-actions-button"
+          component="a"
+          href="#"
+          variant="contained"
+        >
+          <span>visit web</span>
+          <IconVisitWeb className="icon-visit" />
+        </Button>
+        <Button
+          className="project-actions-button"
+          component="a"
+          href="#"
+          variant="contained"
+        >
+          <span>source code</span>
+          <GitHubIcon />
+        </Button>
+        <Button
+          className="project-actions-button"
+          component="a"
+          href="#"
+          variant="contained"
+        >
+          <span>detail</span>
+          <MoreHorizIcon />
+        </Button>
+      </div>
       <SwiperSlide>
         <img className="img-desktop" src={slideDesktop1} alt="" />
         <img className="img-mobile" src={slideMobile1} alt="" />

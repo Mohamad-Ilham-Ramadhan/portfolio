@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import clsx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, darken } from "@material-ui/core/styles";
 import { CSSTransition } from "react-transition-group";
 import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
@@ -55,8 +55,27 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     borderRadius: "50%",
     margin: 16,
+    position: "relative",
+    transition: "300ms",
     "& img": {
       width: 80,
+    },
+    "& .power-name": {
+      fontSize: 56,
+      fontWeight: 700,
+      position: "absolute",
+      width: "max-content",
+      opacity: 0,
+      transition: "300ms",
+    },
+    "&:hover": {
+      backgroundColor: darken(theme.palette.neutral.powerBG, 0.5),
+      "& img": {
+        filter: "brightness(.5)",
+      },
+      "& .power-name": {
+        opacity: 1,
+      },
     },
   },
 
@@ -79,23 +98,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const fundamentalImgs = [
-  { img: htmlImg },
-  { img: cssImg },
-  { img: javascriptImg },
-  { img: sassImg, width: 100 },
+  { img: htmlImg, name: "HTML5" },
+  { img: cssImg, name: "CSS3" },
+  { img: javascriptImg, name: "JavaScript" },
+  { img: sassImg, width: 100, name: "Sass" },
 ];
 const frameworkImgs = [
-  { img: reactImg },
-  { img: reduxImg },
-  { img: bootstrapImg },
-  { img: materialUIImg },
-  { img: animejsImg },
+  { img: reactImg, width: 100, name: "React" },
+  { img: reduxImg, name: "Redux" },
+  { img: bootstrapImg, name: "Bootstrap" },
+  { img: materialUIImg, name: "Material-UI" },
+  { img: animejsImg, width: 100, name: "Animejs" },
 ];
 const toolImgs = [
-  { img: gitImg },
-  { img: webpackImg },
-  { img: terminalImg },
-  { img: npmImg },
+  { img: gitImg, name: "Git" },
+  { img: webpackImg, name: "Webpack" },
+  { img: terminalImg, name: "Terminal" },
+  { img: npmImg, name: "NPM" },
 ];
 
 function renderPowers(imgs, styles) {
@@ -105,9 +124,10 @@ function renderPowers(imgs, styles) {
         <div className={styles.power}>
           <img
             src={item.img}
-            alt=""
+            alt={item.name}
             style={{ width: item.width && item.width }}
           />
+          <div className="power-name">{item.name}</div>
         </div>
       ))}
     </>

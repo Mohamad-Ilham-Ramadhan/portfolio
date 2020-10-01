@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 // const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  // mode: "development",
   devServer: {
     open: true,
     contentBase: "./dist",

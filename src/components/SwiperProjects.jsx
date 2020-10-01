@@ -8,11 +8,8 @@ import IconFacebook from "./icons/IconFacebook";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 // Swiper
-import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from "swiper";
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
+import { Swiper, SwiperSlide } from "swiper/react";
 import arrowNext from "../images/arrow-next.svg";
 import arrowPrev from "../images/arrow-prev.svg";
 import slideDesktop1 from "../images/slide-desktop.svg";
@@ -23,6 +20,10 @@ import slideDesktop3 from "../images/slide-desktop-3.svg";
 import slideMobile3 from "../images/slide-mobile-3.svg";
 import slideDesktop4 from "../images/slide-desktop-4.svg";
 import slideMobile4 from "../images/slide-mobile-4.svg";
+import "swiper/swiper.scss";
+import "swiper/components/navigation/navigation.scss";
+import "swiper/components/pagination/pagination.scss";
+// import "swiper/swiper-bundle.min.css"; // for production only (navigation dan pagination scss nya nge bug)
 
 // Swiper's component initialization
 SwiperCore.use([Navigation, Pagination]);

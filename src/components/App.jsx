@@ -7,6 +7,7 @@ import Home from "./Home";
 import Projects from "./Projects";
 import AboutMe from "./AboutMe";
 import Coba from "./Coba";
+import ProjectDetail from "./pages/ProjectDetail";
 
 const useStyles = makeStyles((theme) => ({
   "@global": {
@@ -25,12 +26,13 @@ export default function App() {
   const styles = useStyles();
 
   return (
-    <div className={styles.root}>
-      <NavbarLeft />
-      <NavbarRight />
-      <Home />
-      <Projects />
-      <AboutMe />
-    </div>
+    // <div className={styles.root}>
+    //   <NavbarLeft />
+    //   <NavbarRight />
+    //   <Home />
+    //   <Projects />
+    //   <AboutMe />
+    // </div>
+    <ProjectDetail />
   );
 }

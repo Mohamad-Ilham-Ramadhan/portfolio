@@ -6,6 +6,7 @@ import NavbarRight from "./NavbarRight";
 import Home from "./Home";
 import Projects from "./Projects";
 import AboutMe from "./AboutMe";
+import Coba from "./Coba";
 
 const useStyles = makeStyles((theme) => ({
   "@global": {

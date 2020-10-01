@@ -19,6 +19,7 @@ const lightGreen = "hsla(96, 79%, 66%, 1)";
 // ## Neutral
 const darkBlue = "hsla(240, 28%, 14%, 1)";
 const veryDarkBlue = "hsla(240, 26%, 7%, 1)";
+const powerBG = "hsla(240, 21%, 13%, 1)";
 
 const customizedTheme = createMuiTheme({
   breakpoints: {
@@ -41,6 +42,7 @@ const customizedTheme = createMuiTheme({
     neutral: {
       darkBlue,
       veryDarkBlue,
+      powerBG,
     },
   },
   typography: {

@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import Heading from "./Heading";
+import PowersDetail from "./PowersDetail";
 import claw from "../images/claw.svg";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import TwitterIcon from "@material-ui/icons/Twitter";
@@ -20,9 +21,9 @@ import materialUIImg from "../images/material-ui.svg";
 import gitImg from "../images/git-logo.svg";
 import webpackImg from "../images/webpack.svg";
 import terminalImg from "../images/terminal.svg";
-
 const useStyles = makeStyles((theme) => ({
   powers: {
+    position: "relative",
     padding: [80, 100, 40, 100],
     backgroundColor: "black",
     marginLeft: -100,
@@ -64,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
       zIndex: 2,
       width: 90,
       height: 90,
-      backgroundColor: "hsla(240, 21%, 13%, 1)",
+      backgroundColor: theme.palette.neutral.powerBG,
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
@@ -88,11 +89,36 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  animation: {
+    "&-enter": {
+      opacity: 0,
+    },
+    "&-enter-active": {
+      opacity: 1,
+      transition: "opacity 300ms",
+    },
+    "&-exit": {
+      opacity: 1,
+    },
+    "&-exit-active": {
+      opacity: 0,
+      transition: "opacity 300ms",
+    },
+  },
 }));
 
 export default function Powers() {
   const styles = useStyles();
-
+  const [open, setOpen] = useState(false);
+  const [powersDetailType, setPowersDetailType] = useState(null);
+  function onClosePowerDetail() {
+    setOpen(false);
+  }
+  function onClickOpenPowerDetail(type) {
+    setOpen(true);
+    setPowersDetailType(type);
+    console.log(type);
+  }
   function onPowerMouseEnter(e) {
     const powers = e.currentTarget.querySelectorAll(".power");
     const move = 75;
@@ -147,6 +173,7 @@ export default function Powers() {
         <Grid
           onMouseEnter={onPowerMouseEnter}
           onMouseLeave={onPowerMouseLeave}
+          onClick={() => onClickOpenPowerDetail("fundamentals")}
           className="powers-grid-item"
           item
           xs={4}
@@ -168,6 +195,7 @@ export default function Powers() {
         <Grid
           onMouseEnter={onPowerMouseEnter}
           onMouseLeave={onPowerMouseLeave}
+          onClick={() => onClickOpenPowerDetail("frameworks")}
           className="powers-grid-item"
           item
           xs={4}
@@ -194,6 +222,7 @@ export default function Powers() {
         <Grid
           onMouseEnter={onPowerMouseEnter}
           onMouseLeave={onPowerMouseLeave}
+          onClick={() => onClickOpenPowerDetail("tools")}
           className="powers-grid-item"
           item
           xs={4}
@@ -227,6 +256,12 @@ export default function Powers() {
           <InstagramIcon />
         </Link>
       </div>
+      <PowersDetail
+        open={open}
+        onClose={onClosePowerDetail}
+        heading="Fundamentals"
+        type={powersDetailType}
+      />
     </div>
   );
 }

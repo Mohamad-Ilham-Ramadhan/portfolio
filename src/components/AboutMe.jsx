@@ -1,15 +1,12 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import clsx from "clsx";
 import anime from "animejs";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import Link from "@material-ui/core/Link";
 import Heading from "./Heading";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import FacebookIcon from "./icons/IconFacebook";
-import InstagramIcon from "@material-ui/icons/Instagram";
+import Powers from "./Powers";
+
 // images
 import arrowMyPowers from "../images/arrow-my-powers.svg";
 import claw from "../images/claw.svg";
@@ -71,54 +68,6 @@ const useStyles = makeStyles((theme) => ({
       opacity: 0.5,
     },
   },
-  powers: {
-    padding: [80, 100, 40, 100],
-    backgroundColor: "black",
-    marginLeft: -100,
-    marginRight: -100,
-    marginBottom: -80,
-    "& .powers-heading": {
-      marginBottom: 172,
-    },
-    "& .powers-grid-container": {
-      marginBottom: 172,
-    },
-    "& .powers-grid-item": {
-      textAlign: "center",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      flexWrap: "wrap",
-    },
-    "& .powers-category": {
-      fontSize: 32,
-      fontWeight: 700,
-      position: "relative",
-      zIndex: 2,
-    },
-    "& .powers-claw": {
-      position: "absolute",
-      zIndex: 1,
-      width: 80,
-      opacity: 0.5,
-    },
-  },
-  sosmed: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-
-    "& .sosmed-icon": {
-      marginRight: 24,
-      color: "white",
-      "&:last-child": {
-        marginRight: 0,
-      },
-      "& svg": {
-        fontSize: "2rem",
-      },
-    },
-  },
 }));
 
 export default function AboutMe() {
@@ -145,6 +94,7 @@ export default function AboutMe() {
       loop: true,
     });
   }, []);
+
   return (
     <section className={styles.root}>
       <Heading className={styles.heading}>About me</Heading>
@@ -184,43 +134,7 @@ export default function AboutMe() {
           <img className="bg-claw" src={claw} alt="" />
         </Grid>
       </Grid>
-      <div className={styles.powers}>
-        <Heading className="powers-heading">Powers</Heading>
-        <Grid className="powers-grid-container" container>
-          <Grid className="powers-grid-item" item xs={4}>
-            <Typography className="powers-category" variant="h4">
-              Fundamentals
-            </Typography>
-            <img className="powers-claw" src={claw} alt="" />
-          </Grid>
-          <Grid className="powers-grid-item" item xs={4}>
-            <Typography className="powers-category" variant="h4">
-              Frameworks&libraries
-            </Typography>
-            <img className="powers-claw" src={claw} alt="" />
-          </Grid>
-          <Grid className="powers-grid-item" item xs={4}>
-            <Typography className="powers-category" variant="h4">
-              Tools
-            </Typography>
-            <img className="powers-claw" src={claw} alt="" />
-          </Grid>
-        </Grid>
-        <div className={styles.sosmed}>
-          <Link className="sosmed-icon" href="#">
-            <GitHubIcon />
-          </Link>
-          <Link className="sosmed-icon" href="#">
-            <TwitterIcon />
-          </Link>
-          <Link className="sosmed-icon" href="#">
-            <FacebookIcon />
-          </Link>
-          <Link className="sosmed-icon" href="#">
-            <InstagramIcon />
-          </Link>
-        </div>
-      </div>
+      <Powers />
     </section>
   );
 }

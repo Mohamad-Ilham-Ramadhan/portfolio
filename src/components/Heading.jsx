@@ -10,6 +10,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 40,
     fontWeight: 700,
     position: "relative",
+    "&.giant": {
+      fontSize: 171,
+    },
     "& .waves": {
       position: "absolute",
       top: "-50%",
@@ -31,10 +34,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Heading({ className, children }) {
+export default function Heading({ className, children, variant }) {
   const styles = useStyles();
   return (
-    <Typography className={clsx(styles.root, className)} variant="h2">
+    <Typography className={clsx(styles.root, className, variant)} variant="h2">
       <img className="waves" src={waves} alt="" />
       <span className="text">{children}</span>
       <span className="dot"></span>

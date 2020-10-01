@@ -78,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "space-between",
       alignItems: "center",
       minHeight: 50,
-      marginTop: 72,
+      marginTop: 40,
       paddingLeft: 140,
       paddingRight: 140,
     },

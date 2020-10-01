@@ -5,6 +5,7 @@ import NavbarLeft from "./NavbarLeft";
 import NavbarRight from "./NavbarRight";
 import Home from "./Home";
 import Projects from "./Projects";
+import AboutMe from "./AboutMe";
 
 const useStyles = makeStyles((theme) => ({
   "@global": {
@@ -28,6 +29,7 @@ export default function App() {
       <NavbarRight />
       <Home />
       <Projects />
+      <AboutMe />
     </div>
   );
 }

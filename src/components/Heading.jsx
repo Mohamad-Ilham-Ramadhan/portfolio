@@ -34,10 +34,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Heading({ className, children, variant }) {
+export default function Heading({ className, children, variant, component }) {
   const styles = useStyles();
   return (
-    <Typography className={clsx(styles.root, className, variant)} variant="h2">
+    <Typography
+      className={clsx(styles.root, className, variant)}
+      variant="h2"
+      component={component}
+    >
       <img className="waves" src={waves} alt="" />
       <span className="text">{children}</span>
       <span className="dot"></span>

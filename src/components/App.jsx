@@ -6,7 +6,6 @@ import NavbarRight from "./NavbarRight";
 import Home from "./Home";
 import Projects from "./Projects";
 import AboutMe from "./AboutMe";
-import Coba from "./Coba";
 import ProjectDetail from "./pages/ProjectDetail";
 
 const useStyles = makeStyles((theme) => ({

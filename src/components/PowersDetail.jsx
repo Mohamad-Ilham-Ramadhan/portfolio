@@ -142,8 +142,6 @@ export default function PowersDetail({
   type,
 }) {
   const styles = useStyles();
-  useEffect(() => {}, []);
-  console.log(type);
   return (
     <div>
       <CSSTransition
@@ -153,7 +151,11 @@ export default function PowersDetail({
         unmountOnExit
       >
         <div className={styles.root}>
-          <Heading className="heading">{heading}</Heading>
+          <Heading className="heading">
+            {type == "fundamentals" && "Fundamentals"}
+            {type == "frameworks" && "Frameworks & Libraries"}
+            {type == "tools" && "Tools"}
+          </Heading>
           <IconButton onClick={onClose} className="close">
             <CloseIcon />
           </IconButton>

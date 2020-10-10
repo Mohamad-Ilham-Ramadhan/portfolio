@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -11,11 +11,13 @@ import imageDetailDesktop from "../../images/shortly-detail-desktop.svg";
 import imageDetailMobile from "../../images/shortly-detail-mobile.svg";
 import ButtonPill from "../buttons/ButtonPill";
 import Button from "@material-ui/core/Button";
-
+import IconVisitWeb from "../icons/IconVisitWeb";
+import IconGithub from "@material-ui/icons/GitHub";
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingLeft: 100,
     paddingRight: 100,
+    paddingBottom: 80,
   },
   navbar: {
     marginBottom: 72,
@@ -36,9 +38,20 @@ const useStyles = makeStyles((theme) => ({
   gridImg: {
     display: "flex",
     justifyContent: "flex-end",
+    flexWrap: "wrap",
   },
-  imgDetailWrapper: {},
+  wrapperBtns: {
+    display: "flex",
+    justifyContent: "flex-end",
+    "& button": {
+      marginRight: 16,
+      "&:last-child": {
+        marginRight: 0,
+      },
+    },
+  },
   imgDetail: {
+    marginBottom: 24,
     width: "124%",
     zIndex: -1,
   },
@@ -47,10 +60,25 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     marginBottom: 8,
   },
+  builtWithList: {
+    margin: 0,
+    padding: 0,
+    listStyle: "none",
+    marginBottom: 32,
+  },
 }));
 
 export default function ProjectDetail() {
   const styles = useStyles();
+  const [imgPreview, setImgPreview] = useState(imageDetailDesktop);
+  function changeImgPreview(type) {
+    if (type == "desktop") {
+      setImgPreview(imageDetailDesktop);
+    } else if (type == "mobile") {
+      setImgPreview(imageDetailMobile);
+    }
+  }
+
   return (
     <div className={styles.root}>
       <NavbarTop className={styles.navbar} />
@@ -72,16 +100,42 @@ export default function ProjectDetail() {
               <img src={titikDuaImg} alt="" />
             </span>
           </Typography>
-          <ul>
+          <ul className={styles.builtWithList}>
             <li>React</li>
             <li>Redux</li>
             <li>MaterialUI</li>
             <li>Webpack</li>
             <li>Love</li>
           </ul>
+
+          <div
+            className={styles.wrapperBtns}
+            style={{ justifyContent: "flex-start" }}
+          >
+            <ButtonPill endIcon={<IconVisitWeb />}>Visit</ButtonPill>
+            <ButtonPill endIcon={<IconGithub />}>Source code</ButtonPill>
+          </div>
         </Grid>
         <Grid className={styles.gridImg} item xs={6}>
-          <img className={styles.imgDetail} src={imageDetailDesktop} alt="" />
+          <img className={styles.imgDetail} src={imgPreview} alt="" />
+          <div className={styles.wrapperBtns}>
+            <ButtonPill
+              size="small"
+              onClick={() => {
+                changeImgPreview("desktop");
+              }}
+            >
+              Desktop
+            </ButtonPill>
+            <ButtonPill
+              size="small"
+              onClick={() => {
+                changeImgPreview("mobile");
+              }}
+            >
+              Mobile
+            </ButtonPill>
+          </div>
         </Grid>
       </Grid>
     </div>

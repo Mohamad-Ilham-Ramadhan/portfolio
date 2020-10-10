@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 const useStyles = makeStyles((theme) => ({
@@ -7,23 +8,31 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1rem",
     fontWeight: 700,
     padding: [6, 24],
-    background: "white",
-    marginRight: 16,
+    backgroundColor: "white",
+    "&:hover": {
+      backgroundColor: theme.palette.primary.main,
+      color: "white",
+    },
     "& span": {
-      marginRight: 6,
+      // marginRight: 6,
     },
     "& .icon-visit": {
       fontSize: 20,
     },
+    "&.small": {
+      height: 33,
+      "& span": {
+        fontSize: ".8rem",
+      },
+    },
   },
 }));
 
-export default function ButtonPill({ children }, ...props) {
-  console.log(children);
+export default function ButtonPill({ children, className, size, ...props }) {
   const styles = useStyles();
   return (
-    <Button className={styles.root} {...props}>
-      Desktop
+    <Button className={clsx(styles.root, size, className)} {...props}>
+      {children}
     </Button>
   );
 }

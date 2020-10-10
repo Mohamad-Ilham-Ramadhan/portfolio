@@ -1,12 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconVisitWeb from "./icons/IconVisitWeb";
 import IconFacebook from "./icons/IconFacebook";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import IconGithub from "@material-ui/icons/GitHub";
+import IconMoreHoriz from "@material-ui/icons/MoreHoriz";
+import ButtonPill from "./buttons/ButtonPill";
 // Swiper
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -46,19 +48,8 @@ const useStyles = makeStyles((theme) => ({
       bottom: "34%",
       zIndex: 100,
     },
-    "& .project-actions-button": {
-      borderRadius: 50,
-      fontSize: "1rem",
-      fontWeight: 700,
-      padding: [6, 24],
-      background: "white",
+    "& button": {
       marginRight: 16,
-      "& span": {
-        marginRight: 6,
-      },
-      "& .icon-visit": {
-        fontSize: 20,
-      },
     },
     "& .swiper-slide": {
       display: "flex",
@@ -138,6 +129,12 @@ function getSliderPrev(swiper) {
     slide.classList.contains("swiper-slide-prev")
   )[0];
 }
+function moveNextOrPrevSlideToCenter({ imgMobile, imgDesktop }) {
+  imgDesktop.style.transition = "transform 300ms";
+  imgMobile.style.transition = "transform 300ms";
+  imgDesktop.style.transform = "translateY(0%)";
+  imgMobile.style.transform = "translateY(0%)";
+}
 export default function SwiperProjects({ className }) {
   const styles = useStyles();
   return (
@@ -209,11 +206,10 @@ export default function SwiperProjects({ className }) {
         const imgMobileNext = swiper.slides[swiper.activeIndex].querySelector(
           ".img-mobile"
         );
-        imgDesktopNext.style.transition = "transform 300ms";
-        imgMobileNext.style.transition = "transform 300ms";
-        // put on the center
-        imgDesktopNext.style.transform = "translateY(0%)";
-        imgMobileNext.style.transform = "translateY(0%)";
+        moveNextOrPrevSlideToCenter({
+          imgMobile: imgMobileNext,
+          imgDesktop: imgDesktopNext,
+        });
       }}
       onSlidePrevTransitionStart={(swiper) => {
         swiper.slides[swiper.previousIndex].querySelector(
@@ -229,10 +225,10 @@ export default function SwiperProjects({ className }) {
         const imgMobilePrev = swiper.slides[swiper.activeIndex].querySelector(
           ".img-mobile"
         );
-        imgDesktopPrev.style.transition = "transform 300ms";
-        imgMobilePrev.style.transition = "transform 300ms";
-        imgDesktopPrev.style.transform = "translateY(0%)";
-        imgMobilePrev.style.transform = "translateY(0%)";
+        moveNextOrPrevSlideToCenter({
+          imgMobile: imgMobilePrev,
+          imgDesktop: imgDesktopPrev,
+        });
       }}
       onSliderMove={(swiper, event) => {
         const diff = swiper.touches.diff;
@@ -340,33 +336,15 @@ export default function SwiperProjects({ className }) {
         Link Shortening
       </Typography>
       <div className="project-actions">
-        <Button
-          className="project-actions-button"
-          component="a"
-          href="#"
-          variant="contained"
+        <ButtonPill endIcon={<IconVisitWeb />}>Visit web</ButtonPill>
+        <ButtonPill endIcon={<IconGithub />}>Source code</ButtonPill>
+        <ButtonPill
+          endIcon={<IconMoreHoriz />}
+          component={Link}
+          to="/project-detail"
         >
-          <span>visit web</span>
-          <IconVisitWeb className="icon-visit" />
-        </Button>
-        <Button
-          className="project-actions-button"
-          component="a"
-          href="#"
-          variant="contained"
-        >
-          <span>source code</span>
-          <GitHubIcon />
-        </Button>
-        <Button
-          className="project-actions-button"
-          component="a"
-          href="#"
-          variant="contained"
-        >
-          <span>detail</span>
-          <MoreHorizIcon />
-        </Button>
+          Detail
+        </ButtonPill>
       </div>
       <SwiperSlide>
         <img className="img-desktop" src={slideDesktop1} alt="" />

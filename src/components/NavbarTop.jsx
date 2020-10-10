@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 import imageCircle from "../images/circle.svg";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,15 +47,15 @@ export default function NabarTop({ className }) {
   return (
     <nav className={clsx(styles.root, className)}>
       <li>
-        <a href="#">Home</a>
+        <Link to="/">Home</Link>
         <img src={imageCircle} alt="" />
       </li>
       <li>
-        <a href="#">Portfolio</a>
+        <Link to="/">Portfolio</Link>
         <img src={imageCircle} alt="" />
       </li>
       <li>
-        <a href="#">About me</a>
+        <Link to="/">About me</Link>
         <img src={imageCircle} alt="" />
       </li>
     </nav>

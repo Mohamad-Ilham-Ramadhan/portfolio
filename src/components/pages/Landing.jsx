@@ -7,12 +7,6 @@ import Projects from "../Projects";
 import AboutMe from "../AboutMe";
 
 const useStyles = makeStyles((theme) => ({
-  "@global": {
-    body: {
-      color: "white",
-      backgroundImage: `linear-gradient(to right, ${theme.palette.neutral.darkBlue}, ${theme.palette.neutral.veryDarkBlue})`,
-    },
-  },
   root: {
     paddingLeft: 100,
     paddingRight: 100,

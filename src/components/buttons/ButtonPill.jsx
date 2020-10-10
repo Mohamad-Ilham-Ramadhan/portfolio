@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     padding: [6, 24],
     backgroundColor: "white",
+    transition: "color 0ms",
     "&:hover": {
       backgroundColor: theme.palette.primary.main,
       color: "white",

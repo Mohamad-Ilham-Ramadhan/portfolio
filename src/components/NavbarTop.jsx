@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
+import imageCircle from "../images/circle.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,10 +13,23 @@ const useStyles = makeStyles((theme) => ({
     "& li": {
       display: "inline-block",
       marginRight: 72,
+      position: "relative",
       "&:last-child": {
         marginRight: 0,
       },
-
+      "&:hover": {
+        cursor: "pointer",
+        "& img": {
+          display: "block",
+          position: "absolute",
+          top: -7,
+          left: -10,
+          zIndex: -1,
+        },
+      },
+      "& img": {
+        display: "none",
+      },
       "& a": {
         color: "white",
         textDecoration: "none",
@@ -33,12 +47,15 @@ export default function NabarTop({ className }) {
     <nav className={clsx(styles.root, className)}>
       <li>
         <a href="#">Home</a>
+        <img src={imageCircle} alt="" />
       </li>
       <li>
         <a href="#">Portfolio</a>
+        <img src={imageCircle} alt="" />
       </li>
       <li>
         <a href="#">About me</a>
+        <img src={imageCircle} alt="" />
       </li>
     </nav>
   );

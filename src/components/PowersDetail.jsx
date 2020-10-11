@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
       position: "absolute",
       top: 80,
       right: 100,
-      backgroundColor: theme.palette.neutral.powerBG,
+      backgroundColor: theme.palette.neutral.darkBlueGrayish,
       color: "white",
     },
     "& .powers-wrapper": {
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   power: {
     width: 160,
     height: 160,
-    backgroundColor: theme.palette.neutral.powerBG,
+    backgroundColor: theme.palette.neutral.darkBlueGrayish,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
       transition: "300ms",
     },
     "&:hover": {
-      backgroundColor: darken(theme.palette.neutral.powerBG, 0.5),
+      backgroundColor: darken(theme.palette.neutral.darkBlueGrayish, 0.5),
       "& img": {
         filter: "brightness(.5)",
       },

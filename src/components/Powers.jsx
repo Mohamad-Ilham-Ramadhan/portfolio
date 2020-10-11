@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
       zIndex: 2,
       width: 90,
       height: 90,
-      backgroundColor: theme.palette.neutral.powerBG,
+      backgroundColor: theme.palette.neutral.darkBlueGrayish,
       display: "flex",
       justifyContent: "center",
       alignItems: "center",

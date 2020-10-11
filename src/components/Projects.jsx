@@ -1,14 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
 import Heading from "./Heading";
 import anime from "animejs";
-
 import SwiperProjects from "./SwiperProjects";
-import trianglePink from "../images/triangle-pink-small.svg";
-import plusBlue from "../images/plus.svg";
-import circlePink from "../images/circle.svg";
-
+import CardProject from "./CardProject";
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",
@@ -18,43 +16,29 @@ const useStyles = makeStyles((theme) => ({
   heading: {
     marginBottom: 56,
   },
-  triangle1: {
-    position: "absolute",
-    left: "38%",
-    top: 172,
-    transform: "rotate(35deg)",
-    opacity: 0.25,
-    width: 30,
-    transform: "translateX(250px)",
+
+  swiper: {
+    marginBottom: 156,
   },
-  plus1: {
-    left: "7%",
-    width: 30,
-    opacity: 0.25,
-    position: "absolute",
-    transform: "rotate(-12deg)",
-    bottom: "15%",
-  },
-  circle1: {
-    right: "7%",
-    width: 30,
-    opacity: 0.25,
-    position: "absolute",
-    transform: "rotate(-12deg)",
-    bottom: "14%",
+  gridProject: {
+    textAlign: "center",
   },
 }));
 
 export default function Projects() {
   const styles = useStyles();
-
+  function onClickProject() {}
   return (
     <section className={styles.root}>
-      <img className={styles.triangle1} src={trianglePink} alt="" />
-      <img className={styles.plus1} src={plusBlue} alt="" />
-      <img className={styles.circle1} src={circlePink} alt="" />
       <Heading className={styles.heading}>Projects</Heading>
-      <SwiperProjects />
+      <SwiperProjects className={styles.swiper} />
+      <Grid container spacing={8}>
+        {Array.from({ length: 12 }).map((project) => (
+          <Grid className={styles.gridProject} item xs={12} md={6} lg={4}>
+            <CardProject />
+          </Grid>
+        ))}
+      </Grid>
     </section>
   );
 }

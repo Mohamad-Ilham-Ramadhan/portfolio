@@ -9,6 +9,9 @@ import IconFacebook from "./icons/IconFacebook";
 import IconGithub from "@material-ui/icons/GitHub";
 import IconMoreHoriz from "@material-ui/icons/MoreHoriz";
 import ButtonPill from "./buttons/ButtonPill";
+import trianglePink from "../images/triangle-pink-small.svg";
+import plusBlue from "../images/plus.svg";
+import circlePink from "../images/circle.svg";
 // Swiper
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -31,6 +34,31 @@ import "swiper/components/pagination/pagination.scss";
 SwiperCore.use([Navigation, Pagination]);
 
 const useStyles = makeStyles((theme) => ({
+  triangle1: {
+    position: "absolute",
+    left: "38%",
+    top: 0,
+    transform: "rotate(30deg)",
+    opacity: 0.25,
+    width: 30,
+    transform: "translateX(250px)",
+  },
+  plus1: {
+    left: "7%",
+    width: 30,
+    opacity: 0.25,
+    position: "absolute",
+    transform: "rotate(-12deg)",
+    bottom: "15%",
+  },
+  circle1: {
+    right: "7%",
+    width: 30,
+    opacity: 0.25,
+    position: "absolute",
+    transform: "rotate(-12deg)",
+    bottom: "14%",
+  },
   swiper: {
     overflow: "visible",
     "& .swiper-wrapper": {
@@ -332,6 +360,10 @@ export default function SwiperProjects({ className }) {
         });
       }}
     >
+      <img className={styles.triangle1} src={trianglePink} alt="" />
+      <img className={styles.plus1} src={plusBlue} alt="" />
+      <img className={styles.circle1} src={circlePink} alt="" />
+
       <Typography className="project-title" variant="h3">
         Link Shortening
       </Typography>

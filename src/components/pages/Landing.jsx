@@ -6,21 +6,29 @@ import Home from "../Home";
 import Projects from "../Projects";
 import AboutMe from "../AboutMe";
 
+// developing <SwiperProjectsMobile />
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingLeft: 100,
-    paddingRight: 100,
+    [theme.breakpoints.up("md")]: {
+      paddingLeft: 100,
+      paddingRight: 100,
+    },
   },
 }));
 export default function Landing() {
   const styles = useStyles();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
   return (
     <div className={styles.root}>
-      <NavbarLeft />
-      <NavbarRight />
-      <Home />
+      {!isMobile && <NavbarLeft />}
+      {!isMobile && <NavbarRight />}
+
+      {/* <Home /> */}
       <Projects />
-      <AboutMe />
+      {/* <AboutMe /> */}
     </div>
   );
 }

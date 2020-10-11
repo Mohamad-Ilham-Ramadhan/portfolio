@@ -6,7 +6,12 @@ import Paper from "@material-ui/core/Paper";
 import Heading from "./Heading";
 import anime from "animejs";
 import SwiperProjects from "./SwiperProjects";
+import SwiperProjectsMobile from "./SwiperProjectsMobile";
 import CardProject from "./CardProject";
+// developing SwiperProjectsMobile;
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",
@@ -27,18 +32,22 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Projects() {
   const styles = useStyles();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
   function onClickProject() {}
   return (
     <section className={styles.root}>
-      <Heading className={styles.heading}>Projects</Heading>
-      <SwiperProjects className={styles.swiper} />
-      <Grid container spacing={8}>
-        {Array.from({ length: 12 }).map((project) => (
-          <Grid className={styles.gridProject} item xs={12} md={6} lg={4}>
-            <CardProject />
-          </Grid>
-        ))}
-      </Grid>
+      {/* <Heading className={styles.heading}>Projects</Heading> */}
+      {isMobile ? (
+        <SwiperProjectsMobile />
+      ) : (
+        <SwiperProjects className={styles.swiper} />
+      )}
+      {/* <Grid container spacing={8}>
+        <Grid className={styles.gridProject} item xs={12} md={6} lg={4}>
+          <CardProject />
+        </Grid>
+      </Grid> */}
     </section>
   );
 }

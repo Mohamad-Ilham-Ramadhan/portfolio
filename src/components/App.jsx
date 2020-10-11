@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ProjectDetail from "./pages/ProjectDetail";
 import Landing from "./pages/Landing";
+// Test SwiperProject untuk mobile
+import Projects from "./Projects";
 const useStyles = makeStyles((theme) => ({
   "@global": {
     body: {
@@ -16,9 +18,9 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/project-detail">
+        {/* <Route path="/project-detail">
           <ProjectDetail />
-        </Route>
+        </Route> */}
         <Route path="/">
           <Landing />
         </Route>

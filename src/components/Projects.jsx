@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
@@ -34,14 +34,25 @@ export default function Projects() {
   const styles = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
+  const [initialSlide, setInitialSlide] = useState(0);
   function onClickProject() {}
+  function onSlideChangeSetInitialSlide(activeIndex) {
+    setInitialSlide(activeIndex);
+  }
   return (
     <section className={styles.root}>
       {/* <Heading className={styles.heading}>Projects</Heading> */}
       {isMobile ? (
-        <SwiperProjectsMobile />
+        <SwiperProjectsMobile
+          initialSlide={initialSlide}
+          setInitialSlide={onSlideChangeSetInitialSlide}
+        />
       ) : (
-        <SwiperProjects className={styles.swiper} />
+        <SwiperProjects
+          initialSlide={initialSlide}
+          setInitialSlide={onSlideChangeSetInitialSlide}
+          className={styles.swiper}
+        />
       )}
       {/* <Grid container spacing={8}>
         <Grid className={styles.gridProject} item xs={12} md={6} lg={4}>

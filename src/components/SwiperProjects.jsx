@@ -163,14 +163,20 @@ function moveNextOrPrevSlideToCenter({ imgMobile, imgDesktop }) {
   imgDesktop.style.transform = "translateY(0%)";
   imgMobile.style.transform = "translateY(0%)";
 }
-export default function SwiperProjects({ className }) {
+export default function SwiperProjects({
+  className,
+  initialSlide,
+  setInitialSlide,
+}) {
   const styles = useStyles();
   return (
     <Swiper
       className={clsx(styles.swiper, className)}
+      initialSlide={initialSlide}
       spaceBetween={50}
       slidesPerView={1}
       grabCursor
+      updateOnWindowResize
       navigation={{
         prevEl: ".swiper-button-prev",
         nextEl: ".swiper-button-next",
@@ -183,6 +189,8 @@ export default function SwiperProjects({ className }) {
       virtualTranslate
       onSetTransition={(swiper, transition) => {}}
       onSlideChange={(swiper) => {
+        // setInitialSlide untuk sinkronisasi dengan yg versi Mobile/Desktop
+        setInitialSlide(swiper.activeIndex);
         const slides = Array.from(swiper.slides);
         const activeIndex = swiper.activeIndex;
         const previousIndex = swiper.previousIndex;

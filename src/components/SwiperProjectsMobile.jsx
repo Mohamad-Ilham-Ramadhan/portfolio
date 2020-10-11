@@ -31,16 +31,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SwiperProjectsMobile({ className }) {
+export default function SwiperProjectsMobile({
+  className,
+  initialSlide,
+  setInitialSlide,
+}) {
   const styles = useStyles();
   return (
     <Swiper
       className={clsx(styles.swiper, className)}
+      initialSlide={initialSlide}
       slidesPerView={1}
       grabCursor
       navigation
       pagination={{ clickable: true }}
       spaceBetween={50}
+      onSlideChange={(swiper) => {
+        // setInitialSlide untuk sinkronisasi dengan yg versi Mobile/Desktop
+        setInitialSlide(swiper.activeIndex);
+      }}
     >
       <SwiperSlide>
         <img className={styles.sliderImg} src={sliderImg} alt="" />

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:export-ydpi="300"
+   inkscape:export-xdpi="300"
+   inkscape:export-filename="/home/grimwolf/Documents/inkscape_projects/portfolio/logo-white.png"
+   width="193.86414"
+   height="63.756069"
+   viewBox="0 0 51.293218 16.868794"
+   version="1.1"
+   id="svg840"
+   inkscape:version="1.0 (1.0+r73+1)"
+   sodipodi:docname="logo-white.svg">
+  <defs
+     id="defs834" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="184.62438"
+     inkscape:cy="21.210228"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     units="px"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1366"
+     inkscape:window-height="712"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata837">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-79.055213,-140.04863)">
+    <g
+       id="g846">
+      <circle
+         style="vector-effect:none;fill:#ed6a80;fill-opacity:1;fill-rule:evenodd;stroke-width:0.0125955;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="circle847"
+         cx="128.81287"
+         cy="152.44556"
+         r="1.5355661" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.4154px;line-height:1.25;font-family:Satisfy;-inkscape-font-specification:'Satisfy, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0.101285px;word-spacing:0px;fill:#ffffff;stroke-width:0.460386"
+         x="80.439964"
+         y="153.55446"
+         id="text839"><tspan
+           sodipodi:role="line"
+           id="tspan837"
+           x="80.439964"
+           y="153.55446"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.4154px;font-family:Satisfy;-inkscape-font-specification:'Satisfy, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;stroke-width:0.460386">Ilham</tspan></text>
+    </g>
+  </g>
+</svg>

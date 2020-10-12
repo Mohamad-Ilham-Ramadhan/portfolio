@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Landing() {
   const styles = useStyles();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <div className={styles.root}>
       {!isMobile && <NavbarLeft />}

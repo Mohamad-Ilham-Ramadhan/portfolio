@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, useTheme, useMediaQuery } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import NavbarMobile from "./NavbarMobile";
@@ -10,10 +10,10 @@ import arrowScrollDown from "../images/arrow-scroll-down.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100vh",
     position: "relative",
     [theme.breakpoints.up("md")]: {
       paddingTop: 56,
+      height: "100vh",
     },
   },
   gridContianer: {
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   wrapperHello: {
     display: "flex",
     justifyContent: "center",
-    marginBottom: 24,
+    // marginBottom: 24,
     [theme.breakpoints.up("md")]: {
       marginBottom: 0,
     },
@@ -40,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.primary.main,
       marginLeft: 8,
     },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: 100,
+    },
     [theme.breakpoints.up("md")]: {
       fontSize: 171,
       textAlign: "left",
@@ -52,14 +55,14 @@ const useStyles = makeStyles((theme) => ({
   triangles: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "flex-start",
     height: "100%",
     "& .wrapper": {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
       position: "relative",
-      height: 280,
+      height: 250,
     },
     "& .MuiTypography-root": {
       color: "white",
@@ -72,28 +75,38 @@ const useStyles = makeStyles((theme) => ({
       position: "absolute",
       width: "70%",
       zIndex: 2,
-      opacity: 0.25,
+      opacity: 0.15,
     },
     "& .triangle-pink": {
       position: "absolute",
       width: 32,
+      opacity: 0.25,
       "&.first": {
         left: -14,
         top: 100,
         transform: "rotate(35deg)",
       },
       "&.second": {
-        top: 5,
+        top: 32,
         right: "24%",
         transform: "rotate(45deg)",
       },
       "&.third": {
         right: "20%",
-        bottom: 30,
+        bottom: 32,
         transform: "rotate(27deg)",
       },
     },
+    [theme.breakpoints.up("sm")]: {
+      "& .wrapper": {
+        height: 300,
+      },
+      "& .MuiTypography-root": {
+        fontSize: 30,
+      },
+    },
     [theme.breakpoints.up("md")]: {
+      alignItems: "center",
       "& .wrapper": {
         height: 350,
       },
@@ -139,9 +152,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Home() {
   const styles = useStyles();
+  const theme = useTheme();
+  const upMd = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <section className={styles.root}>
-      <NavbarMobile />
+      {!upMd && <NavbarMobile />}
       <Grid container className={styles.gridContianer}>
         <Grid item xs={12} md={6}>
           <div className={styles.wrapperHello}>

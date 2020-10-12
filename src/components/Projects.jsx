@@ -41,7 +41,7 @@ export default function Projects() {
   }
   return (
     <section className={styles.root}>
-      {/* <Heading className={styles.heading}>Projects</Heading> */}
+      <Heading className={styles.heading}>Projects</Heading>
       {isMobile ? (
         <SwiperProjectsMobile
           initialSlide={initialSlide}

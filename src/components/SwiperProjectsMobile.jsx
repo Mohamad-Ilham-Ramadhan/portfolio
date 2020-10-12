@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   swiper: {
     "& .swiper-button-next, .swiper-button-prev": {
       color: theme.palette.primary.main,
-      height: 30,
+      height: 20,
       overflow: "hidden",
     },
     "& .swiper-pagination-bullet": {

@@ -26,7 +26,7 @@ export default function Landing() {
       {!isMobile && <NavbarLeft />}
       {!isMobile && <NavbarRight />}
 
-      {/* <Home /> */}
+      <Home />
       <Projects />
       {/* <AboutMe /> */}
     </div>

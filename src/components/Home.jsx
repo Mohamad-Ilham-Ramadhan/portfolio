@@ -3,7 +3,7 @@ import { makeStyles, useTheme, useMediaQuery } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import NavbarMobile from "./NavbarMobile";
-
+import imgMouseScrollDown from "../images/mouse-scroll-down.svg";
 import triangleBlue from "../images/triangle-blue.svg";
 import trianglePinkSmall from "../images/triangle-pink-small.svg";
 import arrowScrollDown from "../images/arrow-scroll-down.svg";
@@ -12,7 +12,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",
     [theme.breakpoints.up("md")]: {
+      paddingTop: 32,
+    },
+    [theme.breakpoints.up("lg")]: {
       paddingTop: 56,
+    },
+    [theme.breakpoints.up("xl")]: {
       height: "100vh",
     },
   },
@@ -22,9 +27,12 @@ const useStyles = makeStyles((theme) => ({
   wrapperHello: {
     display: "flex",
     justifyContent: "center",
-    // marginBottom: 24,
     [theme.breakpoints.up("md")]: {
-      marginBottom: 0,
+      alignItems: "center",
+      height: "100%",
+    },
+    [theme.breakpoints.up("lg")]: {
+      justifyContent: "flex-start",
     },
   },
   hello: {
@@ -44,8 +52,25 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 100,
     },
     [theme.breakpoints.up("md")]: {
-      fontSize: 171,
+      fontSize: 90,
       textAlign: "left",
+      "& .dot": {
+        height: 22,
+        width: 22,
+      },
+    },
+    "@media (min-width: 860px)": {
+      fontSize: 100,
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: 120,
+      "& .dot": {
+        height: 30,
+        width: 30,
+      },
+    },
+    [theme.breakpoints.up("xl")]: {
+      fontSize: 171,
       "& .dot": {
         height: 40,
         width: 40,
@@ -111,41 +136,65 @@ const useStyles = makeStyles((theme) => ({
         height: 350,
       },
       "& .triangle-blue": {
-        width: "100%",
+        width: "75%",
+      },
+      "& .MuiTypography-root": {
+        fontSize: 20,
+      },
+      "& .triangle-pink": {
+        "&.second": {
+          top: 40,
+          right: "35%",
+        },
+        "&.third": {
+          bottom: 64,
+          right: "35%",
+        },
+      },
+    },
+    "@media (min-width: 860px)": {
+      "& .MuiTypography-root": {
+        fontSize: 24,
+      },
+    },
+    [theme.breakpoints.up("lg")]: {
+      "& .triangle-blue": {
+        width: "70%",
+      },
+      "& .MuiTypography-root": {
+        fontSize: 30,
+      },
+    },
+    [theme.breakpoints.up("xl")]: {
+      "& .triangle-blue": {
+        width: "80%",
       },
       "& .MuiTypography-root": {
         fontSize: 36,
       },
-      "&.second": {
-        top: -31,
-        right: "35%",
-      },
-      "&.third": {
-        bottom: 0,
-        right: "35%",
+      "& .triangle-pink": {
+        "&.second": {
+          top: -31,
+        },
+        "&.third": {
+          bottom: 0,
+        },
       },
     },
   },
   scrollDown: {
     display: "none",
-    width: "100%",
-    color: "white",
-
-    "& .text": {
-      display: "block",
-      width: "100%",
-      textAlign: "center",
-      marginBottom: 16,
-      fontWeight: 200,
+    position: "absolute",
+    right: 32,
+    bottom: 32,
+    "& img": {
+      width: 24,
     },
     [theme.breakpoints.up("md")]: {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
       flexWrap: "wrap",
-      position: "absolute",
-      bottom: 22,
-      left: 0,
     },
   },
 }));
@@ -210,8 +259,7 @@ export default function Home() {
         </Grid>
       </Grid>
       <div className={styles.scrollDown}>
-        <span className="text">Scroll down</span>
-        <img src={arrowScrollDown} alt="" />
+        <img src={imgMouseScrollDown} alt="" />
       </div>
     </section>
   );

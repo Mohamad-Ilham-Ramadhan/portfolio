@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.up("xl")]: {
       height: "100vh",
+      paddingTop: 0,
     },
   },
   gridContianer: {
@@ -33,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.up("lg")]: {
       justifyContent: "flex-start",
+    },
+    [theme.breakpoints.up("xl")]: {
+      justifyContent: "center",
     },
   },
   hello: {
@@ -170,7 +174,7 @@ const useStyles = makeStyles((theme) => ({
         width: "80%",
       },
       "& .MuiTypography-root": {
-        fontSize: 36,
+        fontSize: 40,
       },
       "& .triangle-pink": {
         "&.second": {

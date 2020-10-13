@@ -12,23 +12,23 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 const useStyles = makeStyles((theme) => ({
   root: {
     [theme.breakpoints.up("md")]: {
-      paddingLeft: 50,
+      // paddingLeft: 50,
       paddingRight: 50,
     },
     [theme.breakpoints.up("lg")]: {
-      paddingLeft: 100,
-      paddingRight: 100,
+      // paddingLeft: 80,
+      paddingRight: 80,
     },
   },
 }));
 export default function Landing() {
   const styles = useStyles();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <div className={styles.root}>
-      {!isMobile && <NavbarLeft />}
-      {!isMobile && <NavbarRight />}
+      {/* {isDesktop && <NavbarLeft />} */}
+      {isDesktop && <NavbarRight />}
 
       <Home />
       <Projects />

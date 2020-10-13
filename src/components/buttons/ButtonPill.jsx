@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     "& .icon-visit": {
       fontSize: 20,
     },
+    // size
     "&.small": {
       height: 33,
       "& span": {

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import clsx from "clsx";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
@@ -59,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
     transform: "rotate(-12deg)",
     bottom: "14%",
   },
+  // =========================================
   swiper: {
     overflow: "visible",
     "& .swiper-wrapper": {
@@ -68,8 +70,14 @@ const useStyles = makeStyles((theme) => ({
       position: "absolute",
       top: 69,
       zIndex: 20,
-      fontSize: 72,
+      fontSize: 56,
       fontWeight: 700,
+      // [theme.breakpoints.up("md")]: {
+      //   fontSize: 56,
+      // },
+      "@media (min-width: 1100px)": {
+        fontSize: 72,
+      },
     },
     "& .project-actions": {
       position: "absolute",
@@ -91,6 +99,26 @@ const useStyles = makeStyles((theme) => ({
     },
     "& .img-desktop": {
       marginRight: 40,
+      [theme.breakpoints.up("md")]: {
+        width: 350,
+      },
+      [theme.breakpoints.up("lg")]: {
+        width: 485,
+      },
+      "@media (min-width: 1100px)": {
+        width: 525,
+      },
+    },
+    "& .img-mobile": {
+      [theme.breakpoints.up("md")]: {
+        width: 180,
+      },
+      [theme.breakpoints.up("lg")]: {
+        width: 200,
+      },
+      "@media (min-width: 1100px)": {
+        width: 230,
+      },
     },
     "& .swiper-controls": {
       position: "relative",
@@ -109,6 +137,10 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: "50%",
       "&::after": {
         content: "''",
+      },
+      [theme.breakpoints.up("md")]: {
+        height: 70,
+        width: 70,
       },
       "&.swiper-button-prev": {
         backgroundColor: "hsla(240, 22%, 22%, 1)",
@@ -169,11 +201,14 @@ export default function SwiperProjects({
   setInitialSlide,
 }) {
   const styles = useStyles();
+  const theme = useTheme();
+  const upLg = useMediaQuery(theme.breakpoints.up("lg"));
+
   return (
     <Swiper
       className={clsx(styles.swiper, className)}
       initialSlide={initialSlide}
-      spaceBetween={50}
+      // spaceBetween={50}
       slidesPerView={1}
       grabCursor
       updateOnWindowResize
@@ -189,6 +224,7 @@ export default function SwiperProjects({
       virtualTranslate
       onSetTransition={(swiper, transition) => {}}
       onSlideChange={(swiper) => {
+        console.log("on slide change!");
         // setInitialSlide untuk sinkronisasi dengan yg versi Mobile/Desktop
         setInitialSlide(swiper.activeIndex);
         const slides = Array.from(swiper.slides);
@@ -201,8 +237,8 @@ export default function SwiperProjects({
             const imgMobile = slide.querySelector(".img-mobile");
             imgDesktop.style.transition = "unset";
             imgMobile.style.transition = "unset";
-            imgDesktop.style.transform = "translateY(-115%)";
-            imgMobile.style.transform = "translateY(115%)";
+            imgDesktop.style.transform = "translateY(-135%)";
+            imgMobile.style.transform = "translateY(135%)";
           });
           // jangan unset transition previous slide
           slides[previousIndex].querySelector(".img-desktop").style.transition =
@@ -217,8 +253,8 @@ export default function SwiperProjects({
             const imgMobile = slide.querySelector(".img-mobile");
             imgDesktop.style.transition = "unset";
             imgMobile.style.transition = "unset";
-            imgDesktop.style.transform = "translateY(115%)";
-            imgMobile.style.transform = "translateY(-115%)";
+            imgDesktop.style.transform = "translateY(135%)";
+            imgMobile.style.transform = "translateY(-135%)";
           });
           // jangan unset transition previous slide
           slides[previousIndex].querySelector(".img-desktop").style.transition =
@@ -228,13 +264,14 @@ export default function SwiperProjects({
         }
       }}
       onSlideNextTransitionStart={(swiper) => {
+        console.log("on slide next transition start!");
+
         // current slide
-        swiper.slides[swiper.previousIndex].querySelector(
-          ".img-desktop"
-        ).style.transform = "translateY(-115%)";
-        swiper.slides[swiper.previousIndex].querySelector(
-          ".img-mobile"
-        ).style.transform = "translateY(115%)";
+        const currentSlide = swiper.slides[swiper.previousIndex];
+        const imgDesktopCurrent = currentSlide.querySelector(".img-desktop");
+        const imgMobileCurrent = currentSlide.querySelector(".img-mobile");
+        imgDesktopCurrent.style.transform = "translateY(-135%)";
+        imgMobileCurrent.style.transform = "translateY(135%)";
         // incoming slide
         const imgDesktopNext = swiper.slides[swiper.activeIndex].querySelector(
           ".img-desktop"
@@ -250,10 +287,10 @@ export default function SwiperProjects({
       onSlidePrevTransitionStart={(swiper) => {
         swiper.slides[swiper.previousIndex].querySelector(
           ".img-desktop"
-        ).style.transform = "translateY(115%)";
+        ).style.transform = "translateY(135%)";
         swiper.slides[swiper.previousIndex].querySelector(
           ".img-mobile"
-        ).style.transform = "translateY(-115%)";
+        ).style.transform = "translateY(-135%)";
         // incoming slide
         const imgDesktopPrev = swiper.slides[swiper.activeIndex].querySelector(
           ".img-desktop"
@@ -268,63 +305,57 @@ export default function SwiperProjects({
       }}
       onSliderMove={(swiper, event) => {
         const diff = swiper.touches.diff;
-
-        swiper.slides[swiper.activeIndex].querySelector(
-          ".img-desktop"
-        ).style.transform = `translateY(${diff}px)`;
-        swiper.slides[swiper.activeIndex].querySelector(
-          ".img-mobile"
-        ).style.transform = `translateY(${-diff}px)`;
+        const slideActive = swiper.slides[swiper.activeIndex];
+        const imgDesktopActive = slideActive.querySelector(".img-desktop");
+        const imgMobileActive = slideActive.querySelector(".img-mobile");
+        imgDesktopActive.style.transform = `translateY(${diff}px)`;
+        imgMobileActive.style.transform = `translateY(${-diff}px)`;
+        imgDesktopActive.style.transition = "unset";
+        imgMobileActive.style.transition = "unset";
 
         // slide Next
         let slideNext;
         if ((slideNext = getSliderNext(swiper))) {
-          slideNext.querySelector(
-            ".img-desktop"
-          ).style.transform = `translateY(calc(115% + ${diff}px))`;
-          slideNext.querySelector(
-            ".img-mobile"
-          ).style.transform = `translateY(calc(-115% - ${diff}px))`;
+          const imgDesktopNext = slideNext.querySelector(".img-desktop");
+          const imgMobileNext = slideNext.querySelector(".img-mobile");
+          imgDesktopNext.style.transition = "unset";
+          imgMobileNext.style.transition = "unset";
+          imgDesktopNext.style.transform = `translateY(calc(135% + ${diff}px))`;
+          imgMobileNext.style.transform = `translateY(calc(-135% - ${diff}px))`;
         }
         // slide Prev
         let slidePrev;
         if ((slidePrev = getSliderPrev(swiper))) {
-          slidePrev.querySelector(
-            ".img-desktop"
-          ).style.transform = `translateY(calc(-115% + ${diff}px))`;
-          slidePrev.querySelector(
-            ".img-mobile"
-          ).style.transform = `translateY(calc(+115% - ${diff}px))`;
+          const imgDesktopPrev = slidePrev.querySelector(".img-desktop");
+          const imgMobilePrev = slidePrev.querySelector(".img-mobile");
+          imgDesktopPrev.style.transition = "unset";
+          imgMobilePrev.style.transition = "unset";
+          imgDesktopPrev.style.transform = `translateY(calc(-135% + ${diff}px))`;
+          imgMobilePrev.style.transform = `translateY(calc(+135% - ${diff}px))`;
         }
       }}
       onTouchStart={(swiper) => {
+        console.log("on touch start");
         // reset touches.diff to prevent glitch onTouchStart
         swiper.touches.diff = 0;
-        // prevent transition onSliderMove
-        const slideActive = getSliderActive(swiper);
-        slideActive.querySelector(".img-desktop").style.transition = "unset";
-        slideActive.querySelector(".img-mobile").style.transition = "unset";
 
         let slideNext;
         if ((slideNext = getSliderNext(swiper))) {
           const imgDesktopNext = slideNext.querySelector(".img-desktop");
           const imgMobileNext = slideNext.querySelector(".img-mobile");
-          imgDesktopNext.style.transform = `translateY( 115%)`;
-          imgMobileNext.style.transform = `translateY( -115%)`;
-          imgDesktopNext.style.transition = "unset";
-          imgMobileNext.style.transition = "unset";
+          imgDesktopNext.style.transform = `translateY( 135%)`;
+          imgMobileNext.style.transform = `translateY( -135%)`;
         }
         let slidePrev;
         if ((slidePrev = getSliderPrev(swiper))) {
           const imgDesktopPrev = slidePrev.querySelector(".img-desktop");
           const imgMobilePrev = slidePrev.querySelector(".img-mobile");
-          imgDesktopPrev.style.transform = `translateY( -115%)`;
-          imgMobilePrev.style.transform = `translateY( 115%)`;
-          imgDesktopPrev.style.transition = "unset";
-          imgMobilePrev.style.transition = "unset";
+          imgDesktopPrev.style.transform = `translateY( -135%)`;
+          imgMobilePrev.style.transform = `translateY( 135%)`;
         }
       }}
       onTouchEnd={(swiper) => {
+        console.log("on touch end");
         const slideActive = getSliderActive(swiper);
         const imgDesktop = slideActive.querySelector(".img-desktop");
         const imgMobile = slideActive.querySelector(".img-mobile");
@@ -337,8 +368,8 @@ export default function SwiperProjects({
         if ((slideNext = getSliderNext(swiper))) {
           const imgDesktopNext = slideNext.querySelector(".img-desktop");
           const imgMobileNext = slideNext.querySelector(".img-mobile");
-          imgDesktopNext.style.transform = "translateY(115%)";
-          imgMobileNext.style.transform = "translateY(-115%)";
+          imgDesktopNext.style.transform = "translateY(135%)";
+          imgMobileNext.style.transform = "translateY(-135%)";
           imgDesktopNext.style.transition = "transform 300ms";
           imgMobileNext.style.transition = "transform 300ms";
         }
@@ -347,8 +378,8 @@ export default function SwiperProjects({
         if ((slidePrev = getSliderPrev(swiper))) {
           const imgDesktopPrev = slidePrev.querySelector(".img-desktop");
           const imgMobilePrev = slidePrev.querySelector(".img-mobile");
-          imgDesktopPrev.style.transform = "translateY(-115%)";
-          imgMobilePrev.style.transform = "translateY(115%)";
+          imgDesktopPrev.style.transform = "translateY(-135%)";
+          imgMobilePrev.style.transform = "translateY(135%)";
           imgDesktopPrev.style.transition = "transform 300ms";
           imgMobilePrev.style.transition = "transform 300ms";
         }
@@ -359,11 +390,17 @@ export default function SwiperProjects({
           slide.style.transform = `translateX(${-slide.swiperSlideOffset}px)`;
           if (slide.classList.contains("swiper-slide-active")) {
             // do nothing
+            const imgDesktop = slide.querySelector(".img-desktop");
+            const imgMobile = slide.querySelector(".img-mobile");
+            imgDesktop.style.transition = "transform 300ms";
+            imgMobile.style.transition = "transform 300ms";
           } else {
             const imgDesktop = slide.querySelector(".img-desktop");
             const imgMobile = slide.querySelector(".img-mobile");
-            imgDesktop.style.transform = "translateY(115%)";
-            imgMobile.style.transform = "translateY(-115%)";
+            console.log(slide);
+            slide.classList.add("n");
+            imgDesktop.style.transform = "translateY(135%)";
+            imgMobile.style.transform = "translateY(-135%)";
           }
         });
       }}
@@ -372,13 +409,18 @@ export default function SwiperProjects({
       <img className={styles.plus1} src={plusBlue} alt="" />
       <img className={styles.circle1} src={circlePink} alt="" />
 
-      <Typography className="project-title" variant="h3">
+      <Typography className="project-title" variant="h4">
         Link Shortening
       </Typography>
       <div className="project-actions">
-        <ButtonPill endIcon={<IconVisitWeb />}>Visit web</ButtonPill>
-        <ButtonPill endIcon={<IconGithub />}>Source code</ButtonPill>
+        <ButtonPill size={!upLg ? "small" : null} endIcon={<IconVisitWeb />}>
+          Visit web
+        </ButtonPill>
+        <ButtonPill size={!upLg ? "small" : null} endIcon={<IconGithub />}>
+          Source code
+        </ButtonPill>
         <ButtonPill
+          size={!upLg ? "small" : null}
           endIcon={<IconMoreHoriz />}
           component={Link}
           to="/project-detail"

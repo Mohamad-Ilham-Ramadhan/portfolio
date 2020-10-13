@@ -41,18 +41,18 @@ module.exports = {
 
       {
         test: /\.(jpg|jpeg|gif|png|svg)$/,
-        use: ["file-loader"],
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf)$/,
         use: [
           {
             loader: "url-loader",
             options: {
-              limit: 5000,
+              limit: 10000,
             },
           },
         ],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf)$/,
+        use: ["file-loader"],
       },
     ],
   },

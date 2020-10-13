@@ -33,11 +33,11 @@ const useStyles = makeStyles((theme) => ({
       height: "100%",
     },
     [theme.breakpoints.up("lg")]: {
-      paddingLeft: 40,
+      // paddingLeft: 40,
       justifyContent: "flex-start",
     },
     [theme.breakpoints.up("xl")]: {
-      paddingLeft: 100,
+      // paddingLeft: 100,
     },
   },
   hello: {

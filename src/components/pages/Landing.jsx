@@ -12,11 +12,11 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 const useStyles = makeStyles((theme) => ({
   root: {
     [theme.breakpoints.up("md")]: {
-      // paddingLeft: 50,
+      paddingLeft: 50,
       paddingRight: 50,
     },
     [theme.breakpoints.up("lg")]: {
-      // paddingLeft: 80,
+      paddingLeft: 80,
       paddingRight: 80,
     },
   },

@@ -17,13 +17,13 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     padding: [80, 32],
     [theme.breakpoints.up("sm")]: {
-      padding: [80, 40],
+      padding: [80, 32],
     },
     [theme.breakpoints.up("md")]: {
       // padding: [80, 0],
     },
     [theme.breakpoints.up("xl")]: {
-      paddingLeft: 100,
+      // paddingLeft: 100,
     },
   },
   heading: {
@@ -40,11 +40,17 @@ const useStyles = makeStyles((theme) => ({
   },
   gridProjectContainer: {
     marginTop: 0,
+    [theme.breakpoints.up("md")]: {
+      // untuk gridProjectItem padding : 16
+      marginLeft: -16,
+      marginRight: -16,
+    },
   },
   gridProjectItem: {
     textAlign: "center",
-    paddingTop: "8px !important",
-    paddingBottom: "8px !important",
+    // padding: [8, 32],
+    paddingTop: 8,
+    paddingBottom: 8,
     [theme.breakpoints.up("md")]: {
       padding: "16px !important ",
     },
@@ -89,7 +95,7 @@ export default function Projects() {
       <Typography className={styles.subHeading} variant="h3">
         More projects
       </Typography>
-      <Grid className={styles.gridProjectContainer} container spacing={8}>
+      <Grid className={styles.gridProjectContainer} container>
         {Array.from({ length: 5 }).map((item, i) => (
           <Grid
             key={i}

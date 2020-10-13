@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import logo from "../images/logo-white.svg";
+import logoPath from "../images/logo-white-path.svg";
 import IconMenu from "@material-ui/icons/Menu";
 import IconClose from "@material-ui/icons/Close";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -58,7 +59,7 @@ export default function NavbarMobile() {
         </div>
         {!open && (
           <a className={styles.logo} href="#" arial-label="bootstrap">
-            <img src={logo} alt="" />
+            <img src={logoPath} alt="" />
           </a>
         )}
         {open && (

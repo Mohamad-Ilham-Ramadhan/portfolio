@@ -18,9 +18,9 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        {/* <Route path="/project-detail">
+        <Route path="/project-detail">
           <ProjectDetail />
-        </Route> */}
+        </Route>
         <Route path="/">
           <Landing />
         </Route>

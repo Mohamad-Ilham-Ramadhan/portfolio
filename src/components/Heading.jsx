@@ -7,29 +7,47 @@ import waves from "../images/wave.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    fontSize: 40,
+    fontSize: 24,
     fontWeight: 700,
     position: "relative",
+    display: "flex",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    [theme.breakpoints.up("sm")]: {
+      fontSize: 40,
+    },
     "&.giant": {
       fontSize: 171,
     },
     "& .waves": {
-      position: "absolute",
+      position: "relative",
       top: "-50%",
       zIndex: 1,
+      width: 22,
+      [theme.breakpoints.up("sm")]: {
+        width: "unset",
+      },
+    },
+    "& .wrapper-text": {
+      position: "relative",
+      transform: "translateX(-10px)",
+      zIndex: 2,
     },
     "& .text": {
       position: "relative",
       zIndex: 2,
-      marginLeft: 16,
     },
     "& .dot": {
       display: "inline-block",
-      width: 12,
-      height: 12,
+      width: 8,
+      height: 8,
       borderRadius: "50%",
       backgroundColor: theme.palette.primary.main,
       marginLeft: 4,
+      [theme.breakpoints.up("sm")]: {
+        width: 12,
+        height: 12,
+      },
     },
   },
 }));
@@ -43,8 +61,10 @@ export default function Heading({ className, children, variant, component }) {
       component={component}
     >
       <img className="waves" src={waves} alt="" />
-      <span className="text">{children}</span>
-      <span className="dot"></span>
+      <span className="wrapper-text">
+        <span className="text">{children}</span>
+        <span className="dot"></span>
+      </span>
     </Typography>
   );
 }

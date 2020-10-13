@@ -21,19 +21,42 @@ import materialUIImg from "../images/material-ui.svg";
 import gitImg from "../images/git-logo.svg";
 import webpackImg from "../images/webpack.svg";
 import terminalImg from "../images/terminal.svg";
+import shade from "../images/shade.svg";
+
 const useStyles = makeStyles((theme) => ({
+  shade: {
+    width: "100%",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    transform: "translateY(-90%)",
+  },
   powers: {
     position: "relative",
-    padding: [80, 100, 40, 100],
+    padding: [40, 32],
     backgroundColor: "black",
-    marginLeft: -100,
-    marginRight: -100,
+    marginLeft: -32,
+    marginRight: -32,
     marginBottom: -80,
+    [theme.breakpoints.up("md")]: {
+      padding: [80, 100, 40, 100],
+      marginLeft: -100,
+      marginRight: -100,
+    },
     "& .powers-heading": {
-      marginBottom: 172,
+      marginBottom: 40,
+      [theme.breakpoints.up("md")]: {
+        marginBottom: 100,
+      },
+      [theme.breakpoints.up("lg")]: {
+        marginBottom: 172,
+      },
     },
     "& .powers-grid-container": {
-      marginBottom: 172,
+      marginBottom: 100,
+      [theme.breakpoints.up("md")]: {
+        marginBottom: 172,
+      },
     },
     "& .powers-grid-item": {
       textAlign: "center",
@@ -41,17 +64,30 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
       alignItems: "center",
       flexWrap: "wrap",
+      height: 124,
       "&:hover": {
         cursor: "pointer",
       },
+      [theme.breakpoints.up("lg")]: {
+        height: "unset",
+      },
     },
     "& .powers-category": {
-      fontSize: 32,
+      fontSize: 24,
       fontWeight: 700,
       position: "relative",
       zIndex: 3,
       "&.active": {
         fontSize: 56,
+      },
+      [theme.breakpoints.up("md")]: {
+        fontSize: 32,
+      },
+      [theme.breakpoints.up("lg")]: {
+        fontSize: 24,
+      },
+      [theme.breakpoints.up("xl")]: {
+        fontSize: 32,
       },
     },
     "& .powers-claw": {
@@ -168,6 +204,7 @@ export default function Powers() {
   }
   return (
     <div className={styles.powers}>
+      <img className={styles.shade} src={shade} alt="" />
       <Heading className="powers-heading">Powers</Heading>
       <Grid className="powers-grid-container" container>
         <Grid
@@ -176,7 +213,8 @@ export default function Powers() {
           onClick={() => onClickOpenPowerDetail("fundamentals")}
           className="powers-grid-item"
           item
-          xs={4}
+          xs={12}
+          lg={4}
         >
           <Typography className="powers-category" variant="h4">
             Fundamentals
@@ -198,7 +236,8 @@ export default function Powers() {
           onClick={() => onClickOpenPowerDetail("frameworks")}
           className="powers-grid-item"
           item
-          xs={4}
+          xs={12}
+          lg={4}
         >
           <Typography className="powers-category" variant="h4">
             Frameworks&libraries
@@ -225,7 +264,8 @@ export default function Powers() {
           onClick={() => onClickOpenPowerDetail("tools")}
           className="powers-grid-item"
           item
-          xs={4}
+          xs={12}
+          lg={4}
         >
           <Typography className="powers-category" variant="h4">
             Tools

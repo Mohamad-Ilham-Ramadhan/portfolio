@@ -13,33 +13,43 @@ import claw from "../images/claw.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: 80,
-    paddingBottom: 80,
+    padding: [80, 32],
   },
   heading: {
     marginBottom: 72,
   },
   name: {
-    fontSize: 64,
+    fontSize: 40,
     fontWeight: 700,
     lineHeight: 0.8,
+    [theme.breakpoints.up("sm")]: {
+      fontSize: 64,
+    },
   },
   passion: {
-    fontSize: 32,
+    fontSize: 24,
     fontWeight: 700,
     color: theme.palette.primary.main,
     marginBottom: 72,
+    lineHeight: 0.8,
+    [theme.breakpoints.up("sm")]: {
+      fontSize: 32,
+      lineHeight: "unset",
+    },
   },
   description: {
     marginBottom: 36,
   },
   gridArrow: {
     position: "relative",
-    display: "flex",
+    display: "none",
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
+    [theme.breakpoints.up("sm")]: {
+      display: "flex",
+    },
     "& .text": {
       display: "block",
       width: "100%",
@@ -105,7 +115,7 @@ export default function AboutMe() {
         Front-end Web Developer
       </Typography>
       <Grid container>
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
           <Typography className={styles.description}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
             numquam praesentium dignissimos molestias eos ipsa. Saepe odit
@@ -125,7 +135,7 @@ export default function AboutMe() {
             debitis aperiam quo!
           </Typography>
         </Grid>
-        <Grid className={styles.gridArrow} item xs={6}>
+        <Grid className={styles.gridArrow} item xs={12} md={6}>
           <div ref={myPowersRef} className="text">
             My powers
           </div>

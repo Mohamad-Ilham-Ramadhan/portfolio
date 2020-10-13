@@ -32,7 +32,7 @@ export default function Landing() {
 
       <Home />
       <Projects />
-      {/* <AboutMe /> */}
+      <AboutMe />
     </div>
   );
 }

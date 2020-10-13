@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import clsx from "clsx";
-import { makeStyles, darken } from "@material-ui/core/styles";
+import { makeStyles, darken, useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { CSSTransition } from "react-transition-group";
 import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
@@ -29,26 +30,40 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "100vh",
     backgroundColor: "black",
-    padding: [80, 100, 0, 100],
+    padding: [40, 32],
+    [theme.breakpoints.up("sm")]: {
+      padding: [80, 100, 0, 100],
+    },
     "& .heading": {
       marginBottom: 72,
+      paddingRight: 40,
+      [theme.breakpoints.up("sm")]: {},
     },
     "& .close": {
       position: "absolute",
-      top: 80,
-      right: 100,
+      top: 30,
+      right: 30,
       backgroundColor: theme.palette.neutral.darkBlueGrayish,
       color: "white",
+      [theme.breakpoints.up("sm")]: {
+        top: 80,
+        right: 100,
+      },
     },
     "& .powers-wrapper": {
       display: "flex",
-      justifyContent: "center",
+      justifyContent: "space-around",
       alignItems: "center",
+      flexWrap: "wrap",
+      [theme.breakpoints.up("sm")]: {
+        justifyContent: "center",
+        flexWrap: "unset",
+      },
     },
   },
   power: {
-    width: 160,
-    height: 160,
+    width: 80,
+    height: 80,
     backgroundColor: theme.palette.neutral.darkBlueGrayish,
     display: "flex",
     justifyContent: "center",
@@ -57,8 +72,15 @@ const useStyles = makeStyles((theme) => ({
     margin: 16,
     position: "relative",
     transition: "300ms",
+    [theme.breakpoints.up("sm")]: {
+      width: 160,
+      height: 160,
+    },
     "& img": {
-      width: 80,
+      width: 40,
+      [theme.breakpoints.up("sm")]: {
+        width: 80,
+      },
     },
     "& .power-name": {
       fontSize: 56,
@@ -102,14 +124,14 @@ const fundamentalImgs = [
   { img: htmlImg, name: "HTML5" },
   { img: cssImg, name: "CSS3" },
   { img: javascriptImg, name: "JavaScript" },
-  { img: sassImg, width: 100, name: "Sass" },
+  { img: sassImg, width: 100, mobileWidth: 55, name: "Sass" },
 ];
 const frameworkImgs = [
-  { img: reactImg, width: 100, name: "React" },
+  { img: reactImg, width: 100, mobileWidth: 50, name: "React" },
   { img: reduxImg, name: "Redux" },
   { img: bootstrapImg, name: "Bootstrap" },
   { img: materialUIImg, name: "Material-UI" },
-  { img: animejsImg, width: 100, name: "Animejs" },
+  { img: animejsImg, width: 100, mobileWidth: 60, name: "Animejs" },
 ];
 const toolImgs = [
   { img: gitImg, name: "Git" },
@@ -118,7 +140,7 @@ const toolImgs = [
   { img: npmImg, name: "NPM" },
 ];
 
-function renderPowers(imgs, styles) {
+function renderPowers(imgs, styles, isMobile) {
   return (
     <>
       {imgs.map((item) => (
@@ -126,7 +148,7 @@ function renderPowers(imgs, styles) {
           <img
             src={item.img}
             alt={item.name}
-            style={{ width: item.width && item.width }}
+            style={{ width: isMobile ? item.mobileWidth : item.width }}
           />
           <div className="power-name">{item.name}</div>
         </div>
@@ -142,6 +164,9 @@ export default function PowersDetail({
   type,
 }) {
   const styles = useStyles();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
+  console.log(isMobile);
   return (
     <div>
       <CSSTransition
@@ -161,9 +186,11 @@ export default function PowersDetail({
           </IconButton>
 
           <div className="powers-wrapper">
-            {type == "fundamentals" && renderPowers(fundamentalImgs, styles)}
-            {type == "frameworks" && renderPowers(frameworkImgs, styles)}
-            {type == "tools" && renderPowers(toolImgs, styles)}
+            {type == "fundamentals" &&
+              renderPowers(fundamentalImgs, styles, isMobile)}
+            {type == "frameworks" &&
+              renderPowers(frameworkImgs, styles, isMobile)}
+            {type == "tools" && renderPowers(toolImgs, styles, isMobile)}
           </div>
         </div>
       </CSSTransition>

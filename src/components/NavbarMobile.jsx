@@ -25,6 +25,13 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: "none",
       },
     },
+    [theme.breakpoints.up("sm")]: {
+      "& li": {
+        marginLeft: 24,
+        marginRight: 24,
+        fontSize: 16,
+      },
+    },
   },
   toggle: {
     position: "absolute",
@@ -38,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
   backdrop: {
     zIndex: 100,
+    backgroundColor: "rgba(0, 0, 0, 0.75)",
   },
 }));
 

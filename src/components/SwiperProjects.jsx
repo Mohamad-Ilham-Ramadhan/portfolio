@@ -108,6 +108,9 @@ const useStyles = makeStyles((theme) => ({
       "@media (min-width: 1100px)": {
         width: 525,
       },
+      [theme.breakpoints.up("xl")]: {
+        width: 600,
+      },
     },
     "& .img-mobile": {
       [theme.breakpoints.up("md")]: {
@@ -224,7 +227,6 @@ export default function SwiperProjects({
       virtualTranslate
       onSetTransition={(swiper, transition) => {}}
       onSlideChange={(swiper) => {
-        console.log("on slide change!");
         // setInitialSlide untuk sinkronisasi dengan yg versi Mobile/Desktop
         setInitialSlide(swiper.activeIndex);
         const slides = Array.from(swiper.slides);
@@ -264,8 +266,6 @@ export default function SwiperProjects({
         }
       }}
       onSlideNextTransitionStart={(swiper) => {
-        console.log("on slide next transition start!");
-
         // current slide
         const currentSlide = swiper.slides[swiper.previousIndex];
         const imgDesktopCurrent = currentSlide.querySelector(".img-desktop");
@@ -335,7 +335,6 @@ export default function SwiperProjects({
         }
       }}
       onTouchStart={(swiper) => {
-        console.log("on touch start");
         // reset touches.diff to prevent glitch onTouchStart
         swiper.touches.diff = 0;
 
@@ -355,7 +354,6 @@ export default function SwiperProjects({
         }
       }}
       onTouchEnd={(swiper) => {
-        console.log("on touch end");
         const slideActive = getSliderActive(swiper);
         const imgDesktop = slideActive.querySelector(".img-desktop");
         const imgMobile = slideActive.querySelector(".img-mobile");
@@ -397,7 +395,6 @@ export default function SwiperProjects({
           } else {
             const imgDesktop = slide.querySelector(".img-desktop");
             const imgMobile = slide.querySelector(".img-mobile");
-            console.log(slide);
             slide.classList.add("n");
             imgDesktop.style.transform = "translateY(135%)";
             imgMobile.style.transform = "translateY(-135%)";

@@ -72,7 +72,7 @@ export default function CardProject({ className }) {
             <span>API</span>
             <span>Layout</span>
           </div>
-          <Typography component="h3" className="project-title">
+          <Typography component="h4" className="project-title">
             Huddle landing page with curved sections
           </Typography>
           <Typography className="project-desc">

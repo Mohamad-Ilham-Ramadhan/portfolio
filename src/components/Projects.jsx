@@ -16,8 +16,14 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",
     padding: [80, 32],
+    [theme.breakpoints.up("sm")]: {
+      padding: [80, 40],
+    },
     [theme.breakpoints.up("md")]: {
       // padding: [80, 0],
+    },
+    [theme.breakpoints.up("xl")]: {
+      paddingLeft: 100,
     },
   },
   heading: {
@@ -64,9 +70,9 @@ export default function Projects() {
   return (
     <section className={styles.root}>
       <Heading className={styles.heading}>Projects</Heading>
-      <Typography className={styles.subHeading} variant="h3">
+      {/* <Typography className={styles.subHeading} variant="h3">
         Featured
-      </Typography>
+      </Typography> */}
       {isMobile ? (
         <SwiperProjectsMobile
           initialSlide={initialSlide}

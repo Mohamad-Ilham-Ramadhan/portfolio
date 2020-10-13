@@ -33,10 +33,11 @@ const useStyles = makeStyles((theme) => ({
       height: "100%",
     },
     [theme.breakpoints.up("lg")]: {
+      paddingLeft: 40,
       justifyContent: "flex-start",
     },
     [theme.breakpoints.up("xl")]: {
-      justifyContent: "center",
+      paddingLeft: 100,
     },
   },
   hello: {
@@ -51,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
       width: 20,
       backgroundColor: theme.palette.primary.main,
       marginLeft: 8,
+    },
+    "@media (min-width: 500px)": {
+      fontSize: 90,
     },
     [theme.breakpoints.up("sm")]: {
       fontSize: 100,
@@ -67,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 100,
     },
     [theme.breakpoints.up("lg")]: {
-      fontSize: 120,
+      fontSize: 150,
       "& .dot": {
         height: 30,
         width: 30,

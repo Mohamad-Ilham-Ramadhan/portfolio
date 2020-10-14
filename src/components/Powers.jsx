@@ -45,17 +45,18 @@ const useStyles = makeStyles((theme) => ({
     },
     "& .powers-heading": {
       marginBottom: 40,
-      [theme.breakpoints.up("md")]: {
-        marginBottom: 100,
-      },
+
       [theme.breakpoints.up("lg")]: {
-        marginBottom: 172,
+        marginBottom: 140,
       },
     },
     "& .powers-grid-container": {
-      marginBottom: 100,
+      marginBottom: 80,
       [theme.breakpoints.up("md")]: {
-        marginBottom: 172,
+        marginBottom: 80,
+      },
+      [theme.breakpoints.up("lg")]: {
+        marginBottom: 160,
       },
     },
     "& .powers-grid-item": {
@@ -67,6 +68,9 @@ const useStyles = makeStyles((theme) => ({
       height: 124,
       "&:hover": {
         cursor: "pointer",
+      },
+      [theme.breakpoints.up("md")]: {
+        height: 184,
       },
       [theme.breakpoints.up("lg")]: {
         height: "unset",

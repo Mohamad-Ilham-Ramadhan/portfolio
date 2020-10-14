@@ -28,10 +28,14 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     zIndex: 100,
     width: "100%",
-    height: "100vh",
+    height: "100%",
     backgroundColor: "black",
     padding: [40, 32],
-    [theme.breakpoints.up("sm")]: {
+    overflow: "scroll",
+    [theme.breakpoints.up("md")]: {
+      padding: 40,
+    },
+    [theme.breakpoints.up("mlg")]: {
       padding: [80, 100, 0, 100],
     },
     "& .heading": {
@@ -45,7 +49,11 @@ const useStyles = makeStyles((theme) => ({
       right: 30,
       backgroundColor: theme.palette.neutral.darkBlueGrayish,
       color: "white",
-      [theme.breakpoints.up("sm")]: {
+      [theme.breakpoints.up("md")]: {
+        top: 67,
+        right: 60,
+      },
+      [theme.breakpoints.up("lg")]: {
         top: 80,
         right: 100,
       },
@@ -55,9 +63,8 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "space-around",
       alignItems: "center",
       flexWrap: "wrap",
-      [theme.breakpoints.up("sm")]: {
+      [theme.breakpoints.up("lg")]: {
         justifyContent: "center",
-        flexWrap: "unset",
       },
     },
   },

@@ -1,0 +1,16 @@
+// Featured 
+1. Rest countries API.
+2. Rock Paper Scissors.
+3. IP address tracker.
+4. URL shortening API.
+5. Job listing filtering.
+// layouts
+6. Huddle landing page.
+7. Fylo landing page.
+// Junior
+8. Coding bootcamp testimonial slider.
+9. Four card feature section.
+10. Base apparel coming soon.
+11. Intro component
+12. Single price grid
+13. Ping single column

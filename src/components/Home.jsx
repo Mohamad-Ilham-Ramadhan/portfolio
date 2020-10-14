@@ -11,6 +11,7 @@ import arrowScrollDown from "../images/arrow-scroll-down.svg";
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",
+    paddingTop: 40,
     [theme.breakpoints.up("md")]: {
       paddingTop: 32,
     },
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   navbarMobile: {
-    marginBottom: 40,
+    // marginBottom: 40,
   },
   gridContianer: {
     height: "100%",
@@ -216,7 +217,7 @@ export default function Home() {
   const upMd = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <section className={styles.root}>
-      {!upMd && <NavbarMobile className={styles.navbarMobile} />}
+      {/* {!upMd && <NavbarMobile className={styles.navbarMobile} />} */}
       <Grid container className={styles.gridContianer}>
         <Grid item xs={12} md={6}>
           <div className={styles.wrapperHello}>

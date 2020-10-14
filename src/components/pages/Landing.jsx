@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import NavbarLeft from "../NavbarLeft";
 import NavbarRight from "../NavbarRight";
+import NavbarMobile from "../NavbarMobile";
 import Home from "../Home";
 import Projects from "../Projects";
 import AboutMe from "../AboutMe";
@@ -29,7 +30,7 @@ export default function Landing() {
     <div className={styles.root}>
       {/* {isDesktop && <NavbarLeft />} */}
       {isDesktop && <NavbarRight />}
-
+      {!isDesktop && <NavbarMobile />}
       <Home />
       <Projects />
       <AboutMe />

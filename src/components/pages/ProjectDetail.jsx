@@ -16,7 +16,7 @@ import NavbarMobile from "../NavbarMobile";
 const useStyles = makeStyles((theme) => ({
   root: {},
   container: {
-    padding: [0, 24, 40],
+    padding: [0, 24, 80],
     [theme.breakpoints.up("lg")]: {
       padding: [0, 80, 40],
     },
@@ -27,9 +27,7 @@ const useStyles = makeStyles((theme) => ({
   navbar: {
     marginBottom: 40,
   },
-  navbarMobile: {
-    marginBottom: 24,
-  },
+
   heading: {
     marginBottom: 24,
     [theme.breakpoints.up("md")]: {

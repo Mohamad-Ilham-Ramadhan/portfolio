@@ -8,10 +8,12 @@ import Link from "@material-ui/core/Link";
 import Heading from "./Heading";
 import PowersDetail from "./PowersDetail";
 import claw from "../images/claw.svg";
+// sosmed icons
 import GitHubIcon from "@material-ui/icons/GitHub";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "./icons/IconFacebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
+// sosmed icons <end>
 import htmlImg from "../images/html.svg";
 import cssImg from "../images/css.svg";
 import javascriptImg from "../images/javascript.svg";
@@ -33,13 +35,13 @@ const useStyles = makeStyles((theme) => ({
   },
   powers: {
     position: "relative",
-    padding: [40, 32],
+    padding: [40, 32, 100],
     backgroundColor: "black",
     marginLeft: -32,
     marginRight: -32,
-    marginBottom: -80,
+    marginBottom: -100,
     [theme.breakpoints.up("md")]: {
-      padding: [80, 100, 40, 100],
+      padding: [80, 100, 100, 100],
       marginLeft: -100,
       marginRight: -100,
     },

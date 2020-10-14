@@ -17,9 +17,15 @@ const useStyles = makeStyles((theme) => ({
   root: {},
   container: {
     padding: [0, 24, 40],
+    [theme.breakpoints.up("lg")]: {
+      padding: [0, 80, 40],
+    },
+    [theme.breakpoints.up("xl")]: {
+      padding: [0, 100, 40],
+    },
   },
   navbar: {
-    marginBottom: 72,
+    marginBottom: 40,
   },
   navbarMobile: {
     marginBottom: 24,
@@ -35,7 +41,10 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     marginBottom: 32,
     [theme.breakpoints.up("sm")]: {
-      fontSize: "4.5rem",
+      fontSize: "3rem",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "3.5rem",
     },
   },
   description: {
@@ -50,8 +59,16 @@ const useStyles = makeStyles((theme) => ({
   },
   gridImg: {
     display: "flex",
-    justifyContent: "flex-end",
+    justifyContent: "flex-start",
     flexWrap: "wrap",
+    flexDirection: "column",
+    [theme.breakpoints.up("lg")]: {
+      flexDirection: "row",
+      justifyContent: "flex-end",
+    },
+  },
+  wrapperWrapperBtns: {
+    height: "100%",
   },
   wrapperBtns: {
     display: "flex",
@@ -73,12 +90,19 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  imgDetail: {
+  wrapperImgPreview: {
+    width: "100%",
+    direction: "rtl",
+    zIndex: -1,
+  },
+  imgPreview: {
     width: "100%",
     marginBottom: 24,
-    zIndex: -1,
     [theme.breakpoints.up("md")]: {
-      width: "124%",
+      width: "125%",
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: "125%",
     },
   },
   builtWith: {
@@ -97,13 +121,16 @@ const useStyles = makeStyles((theme) => ({
 export default function ProjectDetail() {
   const styles = useStyles();
   const [imgPreview, setImgPreview] = useState(imageDetailDesktop);
+  const [imgPreviewType, setImgPreviewType] = useState("desktop");
   const theme = useTheme();
   const downSm = useMediaQuery(theme.breakpoints.down("sm"));
   function changeImgPreview(type) {
     if (type == "desktop") {
       setImgPreview(imageDetailDesktop);
+      setImgPreviewType("desktop");
     } else if (type == "mobile") {
       setImgPreview(imageDetailMobile);
+      setImgPreviewType("mobile");
     }
   }
 
@@ -125,7 +152,7 @@ export default function ProjectDetail() {
             </Typography>
             {downSm && (
               <>
-                <img className={styles.imgDetail} src={imgPreview} alt="" />
+                <img className={styles.imgPreview} src={imgPreview} alt="" />
                 <div className={styles.wrapperBtns}>
                   <ButtonPill
                     size="small"
@@ -169,30 +196,40 @@ export default function ProjectDetail() {
               className={styles.wrapperBtns}
               style={{ justifyContent: "flex-start" }}
             >
-              <ButtonPill endIcon={<IconVisitWeb />}>Visit</ButtonPill>
-              <ButtonPill endIcon={<IconGithub />}>Source code</ButtonPill>
+              <ButtonPill size="small" endIcon={<IconVisitWeb />}>
+                Visit
+              </ButtonPill>
+              <ButtonPill size="small" endIcon={<IconGithub />}>
+                Source
+              </ButtonPill>
             </div>
           </Grid>
           {!downSm && (
             <Grid className={styles.gridImg} item xs={12} md={6}>
-              <img className={styles.imgDetail} src={imgPreview} alt="" />
-              <div className={styles.wrapperBtns}>
-                <ButtonPill
-                  size="small"
-                  onClick={() => {
-                    changeImgPreview("desktop");
-                  }}
-                >
-                  Desktop
-                </ButtonPill>
-                <ButtonPill
-                  size="small"
-                  onClick={() => {
-                    changeImgPreview("mobile");
-                  }}
-                >
-                  Mobile
-                </ButtonPill>
+              <div className={styles.wrapperImgPreview}>
+                <img className={styles.imgPreview} src={imgPreview} alt="" />
+              </div>
+              <div styles={styles.wrapperWrapperBtns}>
+                <div className={styles.wrapperBtns}>
+                  <ButtonPill
+                    className={imgPreviewType == "desktop" ? "active" : null}
+                    size="small"
+                    onClick={() => {
+                      changeImgPreview("desktop");
+                    }}
+                  >
+                    Desktop
+                  </ButtonPill>
+                  <ButtonPill
+                    className={imgPreviewType == "mobile" ? "active" : null}
+                    size="small"
+                    onClick={() => {
+                      changeImgPreview("mobile");
+                    }}
+                  >
+                    Mobile
+                  </ButtonPill>
+                </div>
               </div>
             </Grid>
           )}

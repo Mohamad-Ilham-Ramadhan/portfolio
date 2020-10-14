@@ -10,12 +10,13 @@ const useStyles = makeStyles((theme) => ({
     padding: [6, 24],
     backgroundColor: "white",
     transition: "color 0ms",
-    "&:hover": {
+    "&.active": {
       backgroundColor: theme.palette.primary.main,
       color: "white",
     },
-    "& span": {
-      // marginRight: 6,
+    "&:hover": {
+      backgroundColor: theme.palette.primary.main,
+      color: "white",
     },
     "& .icon-visit": {
       fontSize: 20,

@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     height: 72,
     position: "relative",
     zIndex: 200,
-    marginBottom: 40,
+    // marginBottom: 40, gak boleh margin taroh di reusable component
     "& li": {
       marginRight: 12,
       marginLeft: 12,
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NavbarMobile() {
+export default function NavbarMobile({ className }) {
   const styles = useStyles();
   const [open, setOpen] = useState(false);
   function toggleOpen() {
@@ -61,7 +61,7 @@ export default function NavbarMobile() {
   return (
     <>
       <Backdrop className={styles.backdrop} open={open} onClick={handleClose} />
-      <nav className={styles.root}>
+      <nav className={clsx(styles.root, className)}>
         <div onClick={toggleOpen} className={styles.toggle} role="button">
           {open ? <IconClose /> : <IconMenu />}
         </div>

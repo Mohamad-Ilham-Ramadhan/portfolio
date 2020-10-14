@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: 0,
     },
   },
+  navbarMobile: {
+    marginBottom: 40,
+  },
   gridContianer: {
     height: "100%",
   },
@@ -213,7 +216,7 @@ export default function Home() {
   const upMd = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <section className={styles.root}>
-      {!upMd && <NavbarMobile />}
+      {!upMd && <NavbarMobile className={styles.navbarMobile} />}
       <Grid container className={styles.gridContianer}>
         <Grid item xs={12} md={6}>
           <div className={styles.wrapperHello}>

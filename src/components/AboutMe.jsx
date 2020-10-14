@@ -14,6 +14,9 @@ import claw from "../images/claw.svg";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: [80, 32],
+    [theme.breakpoints.up("lg")]: {
+      padding: [80, 56],
+    },
   },
   heading: {
     marginBottom: 72,
@@ -144,7 +147,7 @@ export default function AboutMe() {
           <img className="bg-claw" src={claw} alt="" />
         </Grid>
       </Grid>
-      <Powers />
+      {/* <Powers /> */}
     </section>
   );
 }

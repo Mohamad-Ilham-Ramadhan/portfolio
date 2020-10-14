@@ -13,10 +13,10 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     paddingTop: 40,
     [theme.breakpoints.up("md")]: {
-      paddingTop: 32,
+      padding: [32, 32, 0],
     },
     [theme.breakpoints.up("lg")]: {
-      paddingTop: 56,
+      padding: [56, 56, 0],
     },
     [theme.breakpoints.up("xl")]: {
       height: "100vh",
@@ -197,7 +197,7 @@ const useStyles = makeStyles((theme) => ({
   scrollDown: {
     display: "none",
     position: "absolute",
-    right: 32,
+    right: 64,
     bottom: 32,
     "& img": {
       width: 24,

@@ -19,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       padding: [80, 32],
     },
-    [theme.breakpoints.up("md")]: {
-      // padding: [80, 0],
+    [theme.breakpoints.up("lg")]: {
+      padding: [80, 56, 0],
     },
     [theme.breakpoints.up("xl")]: {
       // paddingLeft: 100,

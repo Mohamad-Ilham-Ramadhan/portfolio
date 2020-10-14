@@ -79,24 +79,27 @@ const useStyles = makeStyles((theme) => ({
     margin: 16,
     position: "relative",
     transition: "300ms",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("md")]: {
       width: 160,
       height: 160,
     },
     "& img": {
       width: 40,
-      [theme.breakpoints.up("sm")]: {
+      [theme.breakpoints.up("md")]: {
         width: 80,
       },
     },
     "& .power-name": {
-      fontSize: 56,
+      fontSize: 28,
       fontWeight: 700,
       position: "absolute",
       zIndex: 10,
       width: "max-content",
       opacity: 0,
       transition: "300ms",
+      [theme.breakpoints.up("md")]: {
+        fontSize: 56,
+      },
     },
     "&:hover": {
       backgroundColor: darken(theme.palette.neutral.darkBlueGrayish, 0.5),
@@ -172,7 +175,7 @@ export default function PowersDetail({
 }) {
   const styles = useStyles();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   console.log(isMobile);
   return (
     <div>

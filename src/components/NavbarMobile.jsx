@@ -44,9 +44,14 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  toggle: {
+  toggleOpen: {
     position: "absolute",
     right: 24,
+  },
+  toggleClose: {
+    position: "absolute",
+    right: 24,
+    bottom: 24,
   },
   logo: {
     textAlign: "center",
@@ -61,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
   menuOverlay: {
     backgroundColor: "black",
     position: "fixed",
-    zIndex: 100,
+    zIndex: 300,
     top: 0,
     left: 0,
     height: "100vh",
@@ -153,11 +158,18 @@ export default function NavbarMobile({ className }) {
               </a>
             </li>
           </ul>
+          <div
+            onClick={toggleOpen}
+            className={styles.toggleClose}
+            role="button"
+          >
+            <IconClose />
+          </div>
         </div>
       )}
       <nav className={clsx(styles.root, className)}>
-        <div onClick={toggleOpen} className={styles.toggle} role="button">
-          {open ? <IconClose /> : <IconMenu />}
+        <div onClick={toggleOpen} className={styles.toggleOpen} role="button">
+          <IconMenu />
         </div>
         {!open && (
           <a className={styles.logo} href="#" arial-label="bootstrap">

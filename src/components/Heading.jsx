@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-start",
     alignItems: "center",
     [theme.breakpoints.up("sm")]: {
+      fontSize: 32,
+    },
+    [theme.breakpoints.up("md")]: {
       fontSize: 40,
     },
     "&.giant": {

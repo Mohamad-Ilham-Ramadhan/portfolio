@@ -37,13 +37,9 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     padding: [40, 32, 100],
     backgroundColor: "black",
-    marginLeft: -32,
-    marginRight: -32,
     marginBottom: -100,
     [theme.breakpoints.up("md")]: {
-      padding: [80, 100, 100, 100],
-      marginLeft: -100,
-      marginRight: -100,
+      padding: [80, 56, 100],
     },
     "& .powers-heading": {
       marginBottom: 40,

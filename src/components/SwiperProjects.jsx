@@ -18,19 +18,19 @@ import SwiperCore, { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import arrowNext from "../images/arrow-next.svg";
 import arrowPrev from "../images/arrow-prev.svg";
-import slideDesktop1 from "../images/slide-desktop.svg";
-import slideMobile1 from "../images/slide-mobile.svg";
-import slideDesktop2 from "../images/slide-desktop-2.svg";
-import slideMobile2 from "../images/slide-mobile-2.svg";
-import slideDesktop3 from "../images/slide-desktop-3.svg";
-import slideMobile3 from "../images/slide-mobile-3.svg";
-import slideDesktop4 from "../images/slide-desktop-4.svg";
-import slideMobile4 from "../images/slide-mobile-4.svg";
+import imgRestCountriesDesktop from "../images/slider-desktop/rest-api-desktop.svg";
+import imgRestCountriesMobile from "../images/slider-desktop/rest-api-mobile.svg";
+import imgRestRockPaperScissorsDesktop from "../images/slider-desktop/rock-paper-scissors-desktop.svg";
+import imgRestRockPaperScissorsMobile from "../images/slider-desktop/rock-paper-scissors-mobile.svg";
+import imgRestIpAddressDesktop from "../images/slider-desktop/ip-address-tracker-desktop.svg";
+import imgRestIpAddressMobile from "../images/slider-desktop/ip-address-tracker-mobile.svg";
+import imgJobListingDesktop from "../images/slider-desktop/job-list-desktop.svg";
+import imgJobListingMobile from "../images/slider-desktop/job-list-mobile.svg";
+
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 // import "swiper/swiper-bundle.min.css"; // for production only (navigation dan pagination scss nya nge bug)
-
 // Swiper's component initialization
 SwiperCore.use([Navigation, Pagination]);
 
@@ -99,6 +99,7 @@ const useStyles = makeStyles((theme) => ({
     },
     "& .img-desktop": {
       marginRight: 40,
+      filter: "brightness(.7)",
       [theme.breakpoints.up("md")]: {
         width: 350,
       },
@@ -113,6 +114,8 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     "& .img-mobile": {
+      filter: "brightness(.7)",
+
       [theme.breakpoints.up("md")]: {
         width: 180,
       },
@@ -174,6 +177,33 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
+const projects = [
+  {
+    id: 1,
+    title: "Rest Countires API",
+    imgDesktop: imgRestCountriesDesktop,
+    imgMobile: imgRestCountriesMobile,
+  },
+  {
+    id: 2,
+    title: "Rock Paper Scissors",
+    imgDesktop: imgRestRockPaperScissorsDesktop,
+    imgMobile: imgRestRockPaperScissorsMobile,
+  },
+  {
+    id: 3,
+    title: "IP Address Tracker",
+    imgDesktop: imgRestIpAddressDesktop,
+    imgMobile: imgRestIpAddressMobile,
+  },
+  {
+    id: 4,
+    title: "Job Listing with Filtering",
+    imgDesktop: imgJobListingDesktop,
+    imgMobile: imgJobListingMobile,
+  },
+];
 
 function getSliderActive(swiper) {
   const slides = Array.from(swiper.slides);
@@ -425,11 +455,13 @@ export default function SwiperProjects({
           Detail
         </ButtonPill>
       </div>
-      <SwiperSlide>
-        <img className="img-desktop" src={slideDesktop1} alt="" />
-        <img className="img-mobile" src={slideMobile1} alt="" />
-      </SwiperSlide>
-      <SwiperSlide>
+      {projects.map((item) => (
+        <SwiperSlide key={item.id}>
+          <img className="img-desktop" src={item.imgDesktop} alt="" />
+          <img className="img-mobile" src={item.imgMobile} alt="" />
+        </SwiperSlide>
+      ))}
+      {/* <SwiperSlide>
         <img className="img-desktop" src={slideDesktop2} alt="" />
         <img className="img-mobile" src={slideMobile2} alt="" />
       </SwiperSlide>
@@ -440,7 +472,7 @@ export default function SwiperProjects({
       <SwiperSlide>
         <img className="img-desktop" src={slideDesktop4} alt="" />
         <img className="img-mobile" src={slideMobile4} alt="" />
-      </SwiperSlide>
+      </SwiperSlide> */}
       <div className="swiper-controls">
         <div className="swiper-button swiper-button-prev">
           <img className=".MuiButton-label" src={arrowPrev} alt="" />

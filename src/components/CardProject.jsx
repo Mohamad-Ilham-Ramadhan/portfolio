@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import projectImg from "../images/project-img.svg";
 
 const useStyles = makeStyles((theme) => ({
   project: {
@@ -60,12 +59,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CardProject({ className }) {
+export default function CardProject({ className, img }) {
   const styles = useStyles();
   return (
     <Paper className={clsx(styles.project, className)} elevation={4}>
       <Link to="/project-detail">
-        <img className="project-img" src={projectImg} alt="" />
+        <img className="project-img" src={img} alt="" />
         <div className="project-body">
           <div className="project-tags">
             <span>ReactJS</span>

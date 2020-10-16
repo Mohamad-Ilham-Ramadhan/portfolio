@@ -28,13 +28,35 @@ const useStyles = makeStyles((theme) => ({
         fontSize: ".8rem",
       },
     },
+    "&.tiny": {
+      padding: [0, 16],
+      height: 29,
+      "& span": {
+        fontSize: ".75rem",
+      },
+    },
+    "&.shrink": {
+      "& .MuiButton-endIcon": {
+        marginLeft: 0,
+        marginRight: 0,
+      },
+    },
   },
 }));
 
-export default function ButtonPill({ children, className, size, ...props }) {
+export default function ButtonPill({
+  children,
+  className,
+  size,
+  shrink,
+  ...props
+}) {
   const styles = useStyles();
   return (
-    <Button className={clsx(styles.root, size, className)} {...props}>
+    <Button
+      className={clsx(styles.root, size, shrink ? "shrink" : null, className)}
+      {...props}
+    >
       {children}
     </Button>
   );

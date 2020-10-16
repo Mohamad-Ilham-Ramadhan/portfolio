@@ -1,16 +1,18 @@
 // Featured 
-1. Rest countries API.
-2. Rock Paper Scissors.
-3. IP address tracker.
-4. URL shortening API.
-5. Job listing filtering.
+1. Rest countries API. (react, redux)
+2. Rock Paper Scissors. (react, redux)
+3. IP address tracker. (react)
+4. URL shortening API. (down)
+5. Job listing filtering. (react, redux)
 // layouts
-6. Huddle landing page.
-7. Fylo landing page.
+6. Huddle landing page. (react, bootstrap-scss)
+7. Fylo landing page. (react, material-ui)
 // Junior
-8. Coding bootcamp testimonial slider.
-9. Four card feature section.
-10. Base apparel coming soon.
-11. Intro component
-12. Single price grid
-13. Ping single column
+8. Coding bootcamp testimonial slider. (react, rtg)
+9. Four card feature section. (react, bootstrap)
+10. Base apparel coming soon. (react, bootstrap)
+11. Intro component (react, bootstrap-sass)
+12. Single price grid (react, bootstrap-sass)
+13. Ping single column (react, bootstrap-sass)
+// newbie
+14. fylo data storage component (react, bootstrap)

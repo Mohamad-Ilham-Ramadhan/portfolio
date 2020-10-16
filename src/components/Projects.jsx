@@ -12,6 +12,28 @@ import CardProject from "./CardProject";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
+import imgShortly from "../images/project-imgs/shortly-url-shortening.svg";
+import imgHuddle from "../images/project-imgs/huddle-landing-page.svg";
+import imgFyloLanding from "../images/project-imgs/fylo-landing-page.svg";
+import imgCodingBootcamp from "../images/project-imgs/coding-bootcamp-testimonial.svg";
+import imgFourCard from "../images/project-imgs/four-card-feature-section.svg";
+import imgBaseApparel from "../images/project-imgs/base-apparel.svg";
+import imgIntroComponent from "../images/project-imgs/intro-component.svg";
+import imgPingSingle from "../images/project-imgs/ping-single-column.svg";
+import imgFyloData from "../images/project-imgs/fylo-data-storage-component.svg";
+
+const projects = [
+  { id: 1, img: imgShortly },
+  { id: 2, img: imgHuddle },
+  { id: 3, img: imgFyloLanding },
+  { id: 4, img: imgCodingBootcamp },
+  { id: 5, img: imgFourCard },
+  { id: 6, img: imgBaseApparel },
+  { id: 7, img: imgIntroComponent },
+  { id: 8, img: imgPingSingle },
+  { id: 9, img: imgFyloData },
+];
+
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",
@@ -96,16 +118,16 @@ export default function Projects() {
         More projects
       </Typography>
       <Grid className={styles.gridProjectContainer} container>
-        {Array.from({ length: 5 }).map((item, i) => (
+        {projects.map((item) => (
           <Grid
-            key={i}
+            key={item.id}
             className={styles.gridProjectItem}
             item
             xs={12}
             md={6}
             lg={4}
           >
-            <CardProject className={styles.project} />
+            <CardProject className={styles.project} img={item.img} />
           </Grid>
         ))}
       </Grid>

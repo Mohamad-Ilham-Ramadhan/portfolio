@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -26,7 +27,9 @@ import imgRestIpAddressDesktop from "../images/slider-desktop/ip-address-tracker
 import imgRestIpAddressMobile from "../images/slider-desktop/ip-address-tracker-mobile.svg";
 import imgJobListingDesktop from "../images/slider-desktop/job-list-desktop.svg";
 import imgJobListingMobile from "../images/slider-desktop/job-list-mobile.svg";
-
+// actions:
+import changeActiveSlider from "../config/actions/changeActiveSlider";
+//  swiper:
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
@@ -228,15 +231,17 @@ function moveNextOrPrevSlideToCenter({ imgMobile, imgDesktop }) {
   imgDesktop.style.transform = "translateY(0%)";
   imgMobile.style.transform = "translateY(0%)";
 }
-export default function SwiperProjects({
+function SwiperProjects({
   className,
   initialSlide,
   setInitialSlide,
+  projectsSlider,
+  activeProjectSlider,
+  changeActiveSlider,
 }) {
   const styles = useStyles();
   const theme = useTheme();
   const upLg = useMediaQuery(theme.breakpoints.up("lg"));
-
   return (
     <Swiper
       className={clsx(styles.swiper, className)}
@@ -257,6 +262,8 @@ export default function SwiperProjects({
       virtualTranslate
       onSetTransition={(swiper, transition) => {}}
       onSlideChange={(swiper) => {
+        // set redux activeSliderId:
+        changeActiveSlider(swiper.slides[swiper.activeIndex].dataset.id);
         // setInitialSlide untuk sinkronisasi dengan yg versi Mobile/Desktop
         setInitialSlide(swiper.activeIndex);
         const slides = Array.from(swiper.slides);
@@ -437,7 +444,7 @@ export default function SwiperProjects({
       <img className={styles.circle1} src={circlePink} alt="" />
 
       <Typography className="project-title" variant="h4">
-        Link Shortening
+        {activeProjectSlider.title}
       </Typography>
       <div className="project-actions">
         <ButtonPill size={!upLg ? "small" : null} endIcon={<IconVisitWeb />}>
@@ -456,23 +463,12 @@ export default function SwiperProjects({
         </ButtonPill>
       </div>
       {projects.map((item) => (
-        <SwiperSlide key={item.id}>
+        <SwiperSlide key={item.id} data-id={item.id}>
           <img className="img-desktop" src={item.imgDesktop} alt="" />
           <img className="img-mobile" src={item.imgMobile} alt="" />
         </SwiperSlide>
       ))}
-      {/* <SwiperSlide>
-        <img className="img-desktop" src={slideDesktop2} alt="" />
-        <img className="img-mobile" src={slideMobile2} alt="" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img className="img-desktop" src={slideDesktop3} alt="" />
-        <img className="img-mobile" src={slideMobile3} alt="" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img className="img-desktop" src={slideDesktop4} alt="" />
-        <img className="img-mobile" src={slideMobile4} alt="" />
-      </SwiperSlide> */}
+
       <div className="swiper-controls">
         <div className="swiper-button swiper-button-prev">
           <img className=".MuiButton-label" src={arrowPrev} alt="" />
@@ -485,3 +481,17 @@ export default function SwiperProjects({
     </Swiper>
   );
 }
+function mapState(state) {
+  return {
+    activeProjectSlider: state.activeProjectSlider,
+    projectsSlider: state.projectsSlider,
+  };
+}
+function mapDispatch(dispatch) {
+  return {
+    changeActiveSlider: (id) => {
+      dispatch(changeActiveSlider(id));
+    },
+  };
+}
+export default connect(mapState, mapDispatch)(SwiperProjects);

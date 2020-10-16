@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import { connect } from "react-redux";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import ButtonPill from "./buttons/ButtonPill";
@@ -19,6 +20,8 @@ import imgJobList from "../images/slider-mobile/job-list-with-filtering.svg";
 import IconVisit from "./icons/IconVisitWeb";
 import IconGithub from "@material-ui/icons/GitHub";
 import IconMore from "@material-ui/icons/MoreHoriz";
+// actions:
+import changeActiveSlider from "../config/actions/changeActiveSlider";
 
 // Swiper's component initialization
 SwiperCore.use([Navigation, Pagination]);
@@ -61,11 +64,35 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
-export default function SwiperProjectsMobile({
+const projects = [
+  {
+    id: 1,
+    title: "Rest Countires API",
+    img: imgRestCountries,
+  },
+  {
+    id: 2,
+    title: "Rock Paper Scissors",
+    img: imgRockPaperScissors,
+  },
+  {
+    id: 3,
+    title: "IP Address Tracker",
+    img: imgIpAddressTracker,
+  },
+  {
+    id: 4,
+    title: "Job Listing with Filtering",
+    img: imgJobList,
+  },
+];
+function SwiperProjectsMobile({
   className,
   initialSlide,
   setInitialSlide,
+  projectsSlider,
+  activeProjectSlider,
+  changeActiveSlider,
 }) {
   const styles = useStyles();
   const theme = useTheme();
@@ -82,23 +109,18 @@ export default function SwiperProjectsMobile({
       onSlideChange={(swiper) => {
         // setInitialSlide untuk sinkronisasi dengan yg versi Mobile/Desktop
         setInitialSlide(swiper.activeIndex);
+        changeActiveSlider(swiper.slides[swiper.activeIndex].dataset.id);
       }}
     >
       <Typography component="h4" className={styles.title}>
-        Rest Countries
+        {activeProjectSlider.title}
       </Typography>
-      <SwiperSlide>
-        <img className={styles.sliderImg} src={imgRestCountries} alt="" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img className={styles.sliderImg} src={imgRockPaperScissors} alt="" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img className={styles.sliderImg} src={imgIpAddressTracker} alt="" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img className={styles.sliderImg} src={imgJobList} alt="" />
-      </SwiperSlide>
+      {projects.map((item) => (
+        <SwiperSlide key={item.id} data-id={item.id}>
+          <img className={styles.sliderImg} src={item.img} alt="" />
+        </SwiperSlide>
+      ))}
+
       <div className={styles.wrapperBtns}>
         <ButtonPill shrink={!up376Px} size="tiny" endIcon={<IconVisit />}>
           {up376Px && "Visit"}
@@ -113,3 +135,18 @@ export default function SwiperProjectsMobile({
     </Swiper>
   );
 }
+
+function mapState(state) {
+  return {
+    activeProjectSlider: state.activeProjectSlider,
+    projectsSlider: state.projectsSlider,
+  };
+}
+function mapDispatch(dispatch) {
+  return {
+    changeActiveSlider: (id) => {
+      dispatch(changeActiveSlider(id));
+    },
+  };
+}
+export default connect(mapState, mapDispatch)(SwiperProjectsMobile);

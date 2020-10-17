@@ -86,9 +86,9 @@ const useStyles = makeStyles((theme) => ({
       position: "absolute",
       bottom: "34%",
       zIndex: 100,
-    },
-    "& button": {
-      marginRight: 16,
+      "& .MuiButton-root": {
+        marginRight: 16,
+      },
     },
     "& .swiper-slide": {
       display: "flex",
@@ -212,6 +212,7 @@ function SwiperProjects({
   activeProjectSlider,
   changeActiveSlider,
 }) {
+  console.log(activeProjectSlider);
   const styles = useStyles();
   const theme = useTheme();
   const upLg = useMediaQuery(theme.breakpoints.up("lg"));
@@ -419,17 +420,27 @@ function SwiperProjects({
         {activeProjectSlider.title}
       </Typography>
       <div className="project-actions">
-        <ButtonPill size={!upLg ? "small" : null} endIcon={<IconVisitWeb />}>
+        <ButtonPill
+          component="a"
+          href={activeProjectSlider.visit}
+          size={!upLg ? "small" : null}
+          endIcon={<IconVisitWeb />}
+        >
           Visit web
         </ButtonPill>
-        <ButtonPill size={!upLg ? "small" : null} endIcon={<IconGithub />}>
+        <ButtonPill
+          component="a"
+          href={activeProjectSlider.github}
+          size={!upLg ? "small" : null}
+          endIcon={<IconGithub />}
+        >
           Source code
         </ButtonPill>
         <ButtonPill
           size={!upLg ? "small" : null}
           endIcon={<IconMoreHoriz />}
           component={Link}
-          to="/project-detail"
+          to={`/project-detail/${activeProjectSlider.detail}`}
         >
           Detail
         </ButtonPill>

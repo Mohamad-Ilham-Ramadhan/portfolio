@@ -107,7 +107,7 @@ export default function Projects() {
         More projects
       </Typography>
       <Grid className={styles.gridProjectContainer} container>
-        {moreProjects.map((item) => (
+        {/* {moreProjects.map((item) => (
           <Grid
             key={item.id}
             className={styles.gridProjectItem}
@@ -124,7 +124,7 @@ export default function Projects() {
               description={""}
             />
           </Grid>
-        ))}
+        ))} */}
       </Grid>
     </section>
   );

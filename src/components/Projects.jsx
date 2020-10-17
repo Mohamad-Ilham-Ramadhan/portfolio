@@ -21,18 +21,7 @@ import imgBaseApparel from "../images/project-imgs/base-apparel.svg";
 import imgIntroComponent from "../images/project-imgs/intro-component.svg";
 import imgPingSingle from "../images/project-imgs/ping-single-column.svg";
 import imgFyloData from "../images/project-imgs/fylo-data-storage-component.svg";
-
-const projects = [
-  { id: 1, img: imgShortly },
-  { id: 2, img: imgHuddle },
-  { id: 3, img: imgFyloLanding },
-  { id: 4, img: imgCodingBootcamp },
-  { id: 5, img: imgFourCard },
-  { id: 6, img: imgBaseApparel },
-  { id: 7, img: imgIntroComponent },
-  { id: 8, img: imgPingSingle },
-  { id: 9, img: imgFyloData },
-];
+import { moreProjects } from "../config/data";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -118,7 +107,7 @@ export default function Projects() {
         More projects
       </Typography>
       <Grid className={styles.gridProjectContainer} container>
-        {projects.map((item) => (
+        {moreProjects.map((item) => (
           <Grid
             key={item.id}
             className={styles.gridProjectItem}
@@ -127,7 +116,13 @@ export default function Projects() {
             md={6}
             lg={4}
           >
-            <CardProject className={styles.project} img={item.img} />
+            <CardProject
+              className={styles.project}
+              img={item.imgProject}
+              to={item.detail}
+              title={item.title}
+              description={""}
+            />
           </Grid>
         ))}
       </Grid>

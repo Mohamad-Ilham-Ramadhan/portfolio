@@ -1,4 +1,5 @@
-import React from "react";
+import React, { memo } from "react";
+import { Link } from "react-router-dom";
 import clsx from "clsx";
 import { connect } from "react-redux";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -8,10 +9,10 @@ import Typography from "@material-ui/core/Typography";
 // swiper
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/swiper.scss";
-// import "swiper/components/navigation/navigation.scss";
-// import "swiper/components/pagination/pagination.scss";
-import "swiper/swiper-bundle.min.css"; // for production only (navigation dan pagination scss nya nge bug)
+import "swiper/swiper.scss";
+import "swiper/components/navigation/navigation.scss";
+import "swiper/components/pagination/pagination.scss";
+// import "swiper/swiper-bundle.min.css"; // for production only (navigation dan pagination scss nya nge bug)
 import imgRestCountries from "../images/slider-mobile/rest-countries.svg";
 import imgRockPaperScissors from "../images/slider-mobile/rock-paper-scissors.svg";
 import imgIpAddressTracker from "../images/slider-mobile/ip-address-tracker.svg";
@@ -22,6 +23,7 @@ import IconGithub from "@material-ui/icons/GitHub";
 import IconMore from "@material-ui/icons/MoreHoriz";
 // actions:
 import changeActiveSlider from "../config/actions/changeActiveSlider";
+import selectProjectDetail from "../config/actions/selectProjectDetail";
 
 // Swiper's component initialization
 SwiperCore.use([Navigation, Pagination]);
@@ -59,33 +61,12 @@ const useStyles = makeStyles((theme) => ({
     filter: "brightness(.7)",
   },
   wrapperBtns: {
-    "& button": {
+    "& .MuiButton-root": {
       marginRight: 8,
     },
   },
 }));
-const projects = [
-  {
-    id: 1,
-    title: "Rest Countires API",
-    img: imgRestCountries,
-  },
-  {
-    id: 2,
-    title: "Rock Paper Scissors",
-    img: imgRockPaperScissors,
-  },
-  {
-    id: 3,
-    title: "IP Address Tracker",
-    img: imgIpAddressTracker,
-  },
-  {
-    id: 4,
-    title: "Job Listing with Filtering",
-    img: imgJobList,
-  },
-];
+
 function SwiperProjectsMobile({
   className,
   initialSlide,
@@ -115,20 +96,37 @@ function SwiperProjectsMobile({
       <Typography component="h4" className={styles.title}>
         {activeProjectSlider.title}
       </Typography>
-      {projects.map((item) => (
+      {projectsSlider.map((item) => (
         <SwiperSlide key={item.id} data-id={item.id}>
-          <img className={styles.sliderImg} src={item.img} alt="" />
+          <img className={styles.sliderImg} src={item.mobileImg} alt="" />
         </SwiperSlide>
       ))}
-
       <div className={styles.wrapperBtns}>
-        <ButtonPill shrink={!up376Px} size="tiny" endIcon={<IconVisit />}>
+        <ButtonPill
+          component="a"
+          href={activeProjectSlider.visit}
+          shrink={!up376Px}
+          size="tiny"
+          endIcon={<IconVisit />}
+        >
           {up376Px && "Visit"}
         </ButtonPill>
-        <ButtonPill shrink={!up376Px} size="tiny" endIcon={<IconGithub />}>
+        <ButtonPill
+          component="a"
+          href={activeProjectSlider.github}
+          shrink={!up376Px}
+          size="tiny"
+          endIcon={<IconGithub />}
+        >
           {up376Px && "Source"}
         </ButtonPill>
-        <ButtonPill shrink={!up376Px} size="tiny" endIcon={<IconMore />}>
+        <ButtonPill
+          component={Link}
+          to={`/project-detail/${activeProjectSlider.detail}`}
+          shrink={!up376Px}
+          size="tiny"
+          endIcon={<IconMore />}
+        >
           {up376Px && "Detail"}
         </ButtonPill>
       </div>
@@ -147,6 +145,9 @@ function mapDispatch(dispatch) {
     changeActiveSlider: (id) => {
       dispatch(changeActiveSlider(id));
     },
+    // selectProjectDetail: (link) => {
+    //   dispatch(selectProjectDetail(link));
+    // },
   };
 }
 export default connect(mapState, mapDispatch)(SwiperProjectsMobile);

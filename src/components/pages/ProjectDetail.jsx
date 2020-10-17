@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -13,8 +15,15 @@ import ButtonPill from "../buttons/ButtonPill";
 import IconVisitWeb from "../icons/IconVisitWeb";
 import IconGithub from "@material-ui/icons/GitHub";
 import NavbarMobile from "../NavbarMobile";
+// aactions
+import selectProjectDetail from "../../config/actions/selectProjectDetail";
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    paddingTop: 32,
+    [theme.breakpoints.up("md")]: {
+      paddingTop: 0,
+    },
+  },
   container: {
     padding: [0, 24, 80],
     [theme.breakpoints.up("lg")]: {
@@ -75,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       justifyContent: "flex-end",
     },
-    "& button": {
+    "& .MuiButton-root": {
       marginRight: 16,
       height: 30,
       padding: [0, 18],
@@ -116,22 +125,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ProjectDetail() {
+function ProjectDetail({
+  activeProjectSlider,
+  projectDetail,
+  selectProjectDetail,
+}) {
   const styles = useStyles();
-  const [imgPreview, setImgPreview] = useState(imageDetailDesktop);
   const [imgPreviewType, setImgPreviewType] = useState("desktop");
   const theme = useTheme();
   const downSm = useMediaQuery(theme.breakpoints.down("sm"));
+  const { project } = useParams();
   function changeImgPreview(type) {
     if (type == "desktop") {
-      setImgPreview(imageDetailDesktop);
       setImgPreviewType("desktop");
     } else if (type == "mobile") {
-      setImgPreview(imageDetailMobile);
       setImgPreviewType("mobile");
     }
   }
-
+  useEffect(() => {
+    selectProjectDetail(project);
+  }, []);
+  console.log(projectDetail);
   return (
     <div className={styles.root}>
       {downSm ? (
@@ -141,16 +155,28 @@ export default function ProjectDetail() {
       )}
       <div className={styles.container}>
         <Heading className={styles.heading} component="h1">
-          Shortly
+          {projectDetail.heading}
         </Heading>
         <Grid container>
           <Grid item xs={12} md={6}>
             <Typography className={styles.title} variant="h2">
-              URL API Landing Page
+              {projectDetail.title}
             </Typography>
             {downSm && (
               <>
-                <img className={styles.imgPreview} src={imgPreview} alt="" />
+                {imgPreviewType == "desktop" ? (
+                  <img
+                    className={styles.imgPreview}
+                    src={projectDetail.imgDetailDesktop}
+                    alt=""
+                  />
+                ) : (
+                  <img
+                    className={styles.imgPreview}
+                    src={projectDetail.imgDetailMobile}
+                    alt=""
+                  />
+                )}
                 <div className={styles.wrapperBtns}>
                   <ButtonPill
                     size="small"
@@ -194,10 +220,20 @@ export default function ProjectDetail() {
               className={styles.wrapperBtns}
               style={{ justifyContent: "flex-start" }}
             >
-              <ButtonPill size="small" endIcon={<IconVisitWeb />}>
+              <ButtonPill
+                component="a"
+                href={projectDetail.visit}
+                size="small"
+                endIcon={<IconVisitWeb />}
+              >
                 Visit
               </ButtonPill>
-              <ButtonPill size="small" endIcon={<IconGithub />}>
+              <ButtonPill
+                component="a"
+                href={projectDetail.github}
+                size="small"
+                endIcon={<IconGithub />}
+              >
                 Source
               </ButtonPill>
             </div>
@@ -205,7 +241,19 @@ export default function ProjectDetail() {
           {!downSm && (
             <Grid className={styles.gridImg} item xs={12} md={6}>
               <div className={styles.wrapperImgPreview}>
-                <img className={styles.imgPreview} src={imgPreview} alt="" />
+                {imgPreviewType == "desktop" ? (
+                  <img
+                    className={styles.imgPreview}
+                    src={projectDetail.imgDetailDesktop}
+                    alt=""
+                  />
+                ) : (
+                  <img
+                    className={styles.imgPreview}
+                    src={projectDetail.imgDetailMobile}
+                    alt=""
+                  />
+                )}
               </div>
               <div styles={styles.wrapperWrapperBtns}>
                 <div className={styles.wrapperBtns}>
@@ -236,3 +284,17 @@ export default function ProjectDetail() {
     </div>
   );
 }
+function mapState(state) {
+  return {
+    activeProjectSlider: state.activeProjectSlider,
+    projectDetail: state.projectDetail,
+  };
+}
+function mapDispatch(dispatch) {
+  return {
+    selectProjectDetail: (link) => {
+      dispatch(selectProjectDetail(link));
+    },
+  };
+}
+export default connect(mapState, mapDispatch)(ProjectDetail);

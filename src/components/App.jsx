@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import ProjectDetail from "./pages/ProjectDetail";
 import Landing from "./pages/Landing";
 // Test SwiperProject untuk mobile
@@ -18,7 +18,7 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/project-detail">
+        <Route path="/project-detail/:project">
           <ProjectDetail />
         </Route>
         <Route path="/">

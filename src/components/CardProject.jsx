@@ -59,11 +59,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CardProject({ className, img }) {
+export default function CardProject({
+  className,
+  img,
+  to = "",
+  title,
+  description,
+}) {
   const styles = useStyles();
   return (
     <Paper className={clsx(styles.project, className)} elevation={4}>
-      <Link to="/project-detail">
+      <Link to={`/project-detail/${to}`}>
         <img className="project-img" src={img} alt="" />
         <div className="project-body">
           <div className="project-tags">
@@ -72,11 +78,9 @@ export default function CardProject({ className, img }) {
             <span>Layout</span>
           </div>
           <Typography component="h4" className="project-title">
-            Huddle landing page with curved sections
+            {title}
           </Typography>
-          <Typography className="project-desc">
-            This project is more emphaize in layout skills
-          </Typography>
+          <Typography className="project-desc">{description}</Typography>
         </div>
       </Link>
     </Paper>

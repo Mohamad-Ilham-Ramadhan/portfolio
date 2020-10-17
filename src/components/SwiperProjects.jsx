@@ -104,7 +104,7 @@ const useStyles = makeStyles((theme) => ({
       marginRight: 40,
       filter: "brightness(.7)",
       [theme.breakpoints.up("md")]: {
-        width: 350,
+        width: 365,
       },
       [theme.breakpoints.up("lg")]: {
         width: 485,
@@ -181,33 +181,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const projects = [
-  {
-    id: 1,
-    title: "Rest Countires API",
-    imgDesktop: imgRestCountriesDesktop,
-    imgMobile: imgRestCountriesMobile,
-  },
-  {
-    id: 2,
-    title: "Rock Paper Scissors",
-    imgDesktop: imgRestRockPaperScissorsDesktop,
-    imgMobile: imgRestRockPaperScissorsMobile,
-  },
-  {
-    id: 3,
-    title: "IP Address Tracker",
-    imgDesktop: imgRestIpAddressDesktop,
-    imgMobile: imgRestIpAddressMobile,
-  },
-  {
-    id: 4,
-    title: "Job Listing with Filtering",
-    imgDesktop: imgJobListingDesktop,
-    imgMobile: imgJobListingMobile,
-  },
-];
-
 function getSliderActive(swiper) {
   const slides = Array.from(swiper.slides);
   const slideActive = slides.filter((slide) =>
@@ -246,7 +219,6 @@ function SwiperProjects({
     <Swiper
       className={clsx(styles.swiper, className)}
       initialSlide={initialSlide}
-      // spaceBetween={50}
       slidesPerView={1}
       grabCursor
       updateOnWindowResize
@@ -462,7 +434,7 @@ function SwiperProjects({
           Detail
         </ButtonPill>
       </div>
-      {projects.map((item) => (
+      {projectsSlider.map((item) => (
         <SwiperSlide key={item.id} data-id={item.id}>
           <img className="img-desktop" src={item.imgDesktop} alt="" />
           <img className="img-mobile" src={item.imgMobile} alt="" />

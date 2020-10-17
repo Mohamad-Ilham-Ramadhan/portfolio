@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
         color: "white",
         textDecoration: "none",
         fontSize: 16,
-        // fontWeight: 300,
+        fontWeight: 600,
         // textTransform: "uppercase",
       },
     },

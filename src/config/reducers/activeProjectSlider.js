@@ -1,10 +1,10 @@
-import { projects } from "./projectsSlider";
+import { sliderProjects } from "../data";
 
-export default function activeProjectSlider(state = 1, action) {
+export default function activeProjectSlider(state = 0, action) {
   switch (action.type) {
     case "CHANGE_ACTIVE_SLIDER":
-      return projects.find((item) => item.id == action.id);
+      return sliderProjects.find((item) => item.id == action.id);
     default:
-      return projects.find((item) => item.id == state);
+      return sliderProjects[0];
   }
 }

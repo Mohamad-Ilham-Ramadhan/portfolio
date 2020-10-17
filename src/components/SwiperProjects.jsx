@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import anime from "animejs";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -212,7 +213,15 @@ function SwiperProjects({
   activeProjectSlider,
   changeActiveSlider,
 }) {
-  console.log(activeProjectSlider);
+  useEffect(() => {
+    anime({
+      targets: ".project-title",
+      translateX: [-100, 0],
+      translateY: [-30, 0],
+      opacity: [0, 1],
+      duration: 1500,
+    });
+  }, [activeProjectSlider.title]);
   const styles = useStyles();
   const theme = useTheme();
   const upLg = useMediaQuery(theme.breakpoints.up("lg"));

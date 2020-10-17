@@ -1,4 +1,5 @@
-import React, { memo } from "react";
+import React, { useEffect } from "react";
+import anime from "animejs";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
 import { connect } from "react-redux";
@@ -78,6 +79,15 @@ function SwiperProjectsMobile({
   const styles = useStyles();
   const theme = useTheme();
   const up376Px = useMediaQuery("(min-width:376px)");
+  useEffect(() => {
+    anime({
+      targets: "#title",
+      translateX: [-50, 0],
+      translateY: [-15, 0],
+      opacity: [0, 1],
+      duration: 1500,
+    });
+  }, [activeProjectSlider.title]);
   return (
     <Swiper
       className={clsx(styles.swiper, className)}
@@ -93,7 +103,7 @@ function SwiperProjectsMobile({
         changeActiveSlider(swiper.slides[swiper.activeIndex].dataset.id);
       }}
     >
-      <Typography component="h4" className={styles.title}>
+      <Typography component="h4" className={styles.title} id="title">
         {activeProjectSlider.title}
       </Typography>
       {projectsSlider.map((item) => (

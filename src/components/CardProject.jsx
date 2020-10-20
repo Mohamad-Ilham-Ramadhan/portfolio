@@ -37,13 +37,13 @@ const useStyles = makeStyles((theme) => ({
       "& span": {
         marginRight: 8,
       },
-      "& span:nth-child(1)": {
+      "& span:nth-child(3n+1)": {
         color: "hsl(208, 100%, 74%)",
       },
-      "& span:nth-child(2)": {
+      "& span:nth-child(3n+2)": {
         color: "hsl(323, 100%, 74%)",
       },
-      "& span:nth-child(3)": {
+      "& span:nth-child(3n+3)": {
         color: "hsl(159, 100%, 74%)",
       },
     },
@@ -65,6 +65,7 @@ export default function CardProject({
   to = "",
   title,
   description,
+  tags,
 }) {
   const styles = useStyles();
   return (
@@ -73,14 +74,14 @@ export default function CardProject({
         <img className="project-img" src={img} alt="" />
         <div className="project-body">
           <div className="project-tags">
-            <span>ReactJS</span>
-            <span>API</span>
-            <span>Layout</span>
+            {tags.map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
           </div>
           <Typography component="h4" className="project-title">
             {title}
           </Typography>
-          <Typography className="project-desc">{description}</Typography>
+          {/* <Typography className="project-desc">{description}</Typography> */}
         </div>
       </Link>
     </Paper>

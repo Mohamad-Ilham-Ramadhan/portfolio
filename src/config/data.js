@@ -55,6 +55,18 @@ const projects = [
   {
     id: 0,
     title: "Rest Countires API",
+    description:
+      "This project is a solution for a challange from frontendmentor.io. It's fetch countries data from https://restcountries.eu through redux-thunk (async action) when root component didMount using axios and store it in redux state so no need to re-fetching the filtered list, I'm just using JavaScript filter method and for search, I'm using fuse.js for searching like fuzy search in vscode. It's an single page app using react router dom as router, click the country card and you'll go to detail page which contains detail information about the country. Inside detail page I implement map using leaflet and react-leaflet. To limits the number of the cards I develope pagination using react-paginate. It's also responsive.",
+    builtWith: [
+      "React",
+      "Redux",
+      "Material-UI",
+      "leafletjs",
+      "react-leaflet",
+      "react-paginate",
+      "webpack",
+      "fuse.js",
+    ],
     heading: "Countries API",
     mobileImg: imgRestCountries,
     imgDesktop: imgRestCountriesDesktop,
@@ -70,6 +82,15 @@ const projects = [
   {
     id: 1,
     title: "Rock Paper Scissors",
+    description:
+      "This project is a solution for a challange from frontendmentor.io. This is a game rock paper scissors, play against computer if win you get +1 score if lose you get -1 score. Build using react, redux, react transition group. It's responsive.",
+    builtWith: [
+      "React",
+      "Redux",
+      "Material-UI",
+      "react-transition-group",
+      "webpack",
+    ],
     heading: "Rock Paper Scissors",
     mobileImg: imgRockPaperScissors,
     imgDesktop: imgRestRockPaperScissorsDesktop,
@@ -83,6 +104,9 @@ const projects = [
   {
     id: 2,
     title: "IP Address Tracker",
+    description:
+      "This project is a solution for a challange from frontendmentor.io. This is an IP address tracker site/app, fetch API from https://ipapi.co show IP location in map (leaflet). It's only work with an IP address not domain because the API only provide that. It used to work with a domain but get cross domain issue because the API who provides domain as input use an http (http://ip-api.com) but my site who requests use https so the browser isn't allow that requests.",
+    builtWith: ["React", "Material-UI", "leaflet", "react-leaflet", "webpack"],
     heading: "Tracker",
     mobileImg: imgIpAddressTracker,
     imgDesktop: imgRestIpAddressDesktop,
@@ -97,6 +121,9 @@ const projects = [
   {
     id: 3,
     title: "Job Listings with Filtering",
+    description:
+      "This project is a solution for a challange from frontendmentor.io. This is fake jobs list filtering, it's challange me to filter list using builtWith and select input.",
+    builtWith: ["React", "redux", "Material-UI", "webpack"],
     heading: "Jobs",
     mobileImg: imgJobList,
     imgDesktop: imgJobListingDesktop,
@@ -115,7 +142,9 @@ const projects = [
     title: "Url Shortening API Landing Page",
     heading: "Shortly",
     description:
-      "This project is a solution for a challange from frontendmentor.io. Shorten link saved to localStorage. The API is come from https://rel.ink. This project also improve my layout skill.",
+      "This project is a solution for a challange from frontendmentor.io. Shorten link saved to localStorage. The API is come from https://rel.ink but sadly it has been suspended due to malware activity. The shortened link is saved to localStorage. This project also improve my layout skill.",
+    builtWith: ["React", "Redux", "Material-UI", "Webpack"],
+    tags: ["React", "Layout", "API"],
     mobileImg: null,
     imgDesktop: null,
     imgMobile: null,
@@ -132,6 +161,8 @@ const projects = [
     title: "Huddle Landing Page",
     description:
       "This project is a solution for a challange from frontendmentor.io. It challange my layouting skills and responsive design.",
+    builtWith: ["React", "Bootstrap-sass", "Webpack"],
+    tags: ["React", "Bootstrap", "Layout"],
     heading: "Huddle",
     mobileImg: null,
     imgDesktop: null,
@@ -151,6 +182,8 @@ const projects = [
     heading: "Fylo",
     description:
       "This project is a solution for a challange from frontendmentor.io. It challange my layouting skills and responsive design.",
+    builtWith: ["React", "Material-UI", "Webpack"],
+    tags: ["React", "Material-UI", "Layout"],
     mobileImg: null,
     imgDesktop: null,
     imgMobile: null,
@@ -165,6 +198,10 @@ const projects = [
   {
     id: 7,
     title: "Coding Bootcamp Slider",
+    description:
+      "This project is a solution for a challange from frontendmentor.io. It's the first time of using react transition group to create slider and also challange my layouting skills and responsive design.",
+    builtWith: ["React", "react-transition-group", "Webpack"],
+    tags: ["React", "Animation", "Layout"],
     heading: "Slider",
     mobileImg: null,
     imgDesktop: null,
@@ -181,6 +218,10 @@ const projects = [
     id: 8,
     title: "Four Card Feature Section",
     heading: "Four card",
+    description:
+      "This project is a solution for a challange from frontendmentor.io. It challange my layouting skills and responsive design.",
+    builtWith: ["React", "Bootstrap", "Webpack"],
+    tags: ["React", "Bootstrap", "Layout"],
     mobileImg: null,
     imgDesktop: null,
     imgMobile: null,
@@ -195,7 +236,11 @@ const projects = [
   {
     id: 9,
     title: "Base Apparel Coming Soon",
-    heading: "Four card",
+    heading: "Base Apparel",
+    description:
+      "This project is a solution for a challange from frontendmentor.io. It challange my layouting skills and responsive design.",
+    builtWith: ["React", "Bootstrap", "Webpack"],
+    tags: ["React", "Bootstrap", "Layout"],
     mobileImg: null,
     imgDesktop: null,
     imgMobile: null,
@@ -211,6 +256,10 @@ const projects = [
     id: 10,
     title: "Intro Component",
     heading: "Intro",
+    description:
+      "This project is a solution for a challange from frontendmentor.io. It challange my layouting skills and responsive design.",
+    builtWith: ["React", "bootstrap-sass", "Webpack"],
+    tags: ["React", "Sass", "Layout"],
     mobileImg: null,
     imgDesktop: null,
     imgMobile: null,
@@ -226,6 +275,10 @@ const projects = [
     id: 11,
     title: "Ping Coming Soon Page",
     heading: "Ping",
+    description:
+      "This project is a solution for a challange from frontendmentor.io. It challange my layouting skills and responsive design.",
+    builtWith: ["React", "bootstrap-sass", "Webpack"],
+    tags: ["React", "Sass", "Layout"],
     mobileImg: null,
     imgDesktop: null,
     imgMobile: null,
@@ -240,6 +293,10 @@ const projects = [
     id: 12,
     title: "Fylo Data Storage Component",
     heading: "Fylo",
+    description:
+      "This project is a solution for a challange from frontendmentor.io. My first solution for frontendmentor.io. It challange my layouting skills and responsive design.",
+    builtWith: ["React", "Bootstrap", "Webpack"],
+    tags: ["React", "Sass", "Layout"],
     mobileImg: null,
     imgDesktop: null,
     imgMobile: null,

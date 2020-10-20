@@ -22,6 +22,8 @@ import imgJobList from "../images/slider-mobile/job-list-with-filtering.svg";
 import IconVisit from "./icons/IconVisitWeb";
 import IconGithub from "@material-ui/icons/GitHub";
 import IconMore from "@material-ui/icons/MoreHoriz";
+import arrowNext from "../images/arrow-next.svg";
+import arrowPrev from "../images/arrow-prev.svg";
 // actions:
 import changeActiveSlider from "../config/actions/changeActiveSlider";
 import selectProjectDetail from "../config/actions/selectProjectDetail";
@@ -31,22 +33,22 @@ SwiperCore.use([Navigation, Pagination]);
 
 const useStyles = makeStyles((theme) => ({
   swiper: {
-    "& .swiper-button-next, .swiper-button-prev": {
-      color: theme.palette.primary.main,
-      height: 20,
-      overflow: "hidden",
-    },
+    // "& .swiper-button-next, .swiper-button-prev": {
+    //   color: theme.palette.primary.main,
+    //   height: 20,
+    //   overflow: "hidden",
+    // },
     "& .swiper-pagination": {
       bottom: 45,
     },
     "& .swiper-pagination-bullet": {
       width: 10,
       height: 10,
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: "white",
       opacity: 0.3,
     },
     "& .swiper-pagination-bullet-active": {
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: "white",
       opacity: 1,
     },
   },
@@ -56,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 32,
     fontWeight: 700,
     zIndex: 200,
+    lineHeight: 1,
   },
   sliderImg: {
     width: "100%",
@@ -64,6 +67,34 @@ const useStyles = makeStyles((theme) => ({
   wrapperBtns: {
     "& .MuiButton-root": {
       marginRight: 8,
+    },
+  },
+  navigation: {
+    position: "absolute",
+    top: "50%",
+    width: "100%",
+  },
+  btnNavigation: {
+    height: 30,
+    width: 30,
+    borderRadius: "50%",
+    "&::after": {
+      content: '""',
+    },
+    "& img": {
+      width: "30%",
+    },
+    "&.swiper-button-prev": {
+      backgroundColor: "hsla(240, 22%, 22%, 1)",
+      "& img": {
+        marginRight: 3,
+      },
+    },
+    "&.swiper-button-next": {
+      backgroundColor: "hsla(240, 22%, 17%, 1)",
+      "& img": {
+        marginLeft: 3,
+      },
     },
   },
 }));
@@ -94,7 +125,10 @@ function SwiperProjectsMobile({
       initialSlide={initialSlide}
       slidesPerView={1}
       grabCursor
-      navigation
+      navigation={{
+        prevEl: ".swiper-button-prev",
+        nextEl: ".swiper-button-next",
+      }}
       pagination={{ clickable: true }}
       spaceBetween={50}
       onSlideChange={(swiper) => {
@@ -111,6 +145,20 @@ function SwiperProjectsMobile({
           <img className={styles.sliderImg} src={item.mobileImg} alt="" />
         </SwiperSlide>
       ))}
+      <div className={styles.navigation}>
+        <div
+          className={clsx(styles.btnNavigation, "swiper-button-prev")}
+          role="button"
+        >
+          <img src={arrowPrev} alt="" />
+        </div>
+        <div
+          className={clsx(styles.btnNavigation, "swiper-button-next")}
+          role="button"
+        >
+          <img src={arrowNext} alt="" />
+        </div>
+      </div>
       <div className={styles.wrapperBtns}>
         <ButtonPill
           component="a"

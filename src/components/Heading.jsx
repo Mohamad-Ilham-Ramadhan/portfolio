@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     },
     "& .wrapper-text": {
       position: "relative",
-      transform: "translateX(-10px)",
+      transform: "translateX(-20px)",
       zIndex: 2,
     },
     "& .text": {

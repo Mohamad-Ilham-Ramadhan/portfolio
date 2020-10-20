@@ -69,10 +69,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-start",
     flexWrap: "wrap",
     flexDirection: "column",
-    [theme.breakpoints.up("lg")]: {
-      flexDirection: "row",
-      justifyContent: "flex-end",
-    },
+    // [theme.breakpoints.up("lg")]: {
+    //   flexDirection: "row",
+    //   justifyContent: "flex-end",
+    // },
   },
   wrapperWrapperBtns: {
     height: "100%",
@@ -145,7 +145,6 @@ function ProjectDetail({
   useEffect(() => {
     selectProjectDetail(project);
   }, []);
-  console.log(projectDetail);
   return (
     <div className={styles.root}>
       {downSm ? (
@@ -198,9 +197,7 @@ function ProjectDetail({
               </>
             )}
             <Typography className={styles.description}>
-              Boost your brand recognition with each click. Generic links don't
-              mean a thing. Branded links help instil confidence in your
-              content.
+              {projectDetail.description}
             </Typography>
             <Typography className={styles.builtWith} variant="h3">
               Built with{" "}
@@ -209,11 +206,9 @@ function ProjectDetail({
               </span>
             </Typography>
             <ul className={styles.builtWithList}>
-              <li>React</li>
-              <li>Redux</li>
-              <li>MaterialUI</li>
-              <li>Webpack</li>
-              <li>Love</li>
+              {projectDetail.builtWith.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
             </ul>
 
             <div

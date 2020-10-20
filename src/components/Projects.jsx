@@ -79,6 +79,7 @@ export default function Projects() {
   const styles = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  // sinkronisasi swiper mobile dan desktop tidak bisa dilakukan pleh redux (dengan state activeProjectSlider), masalah ini ada di slideChange, ketika slideChange fire... slides2 belum terinstansiasi dan dataId return undefined.
   const [initialSlide, setInitialSlide] = useState(0);
   function onClickProject() {}
   function onSlideChangeSetInitialSlide(activeIndex) {
@@ -107,9 +108,9 @@ export default function Projects() {
         More projects
       </Typography>
       <Grid className={styles.gridProjectContainer} container>
-        {/* {moreProjects.map((item) => (
+        {moreProjects.map((project) => (
           <Grid
-            key={item.id}
+            key={project.id}
             className={styles.gridProjectItem}
             item
             xs={12}
@@ -118,13 +119,13 @@ export default function Projects() {
           >
             <CardProject
               className={styles.project}
-              img={item.imgProject}
-              to={item.detail}
-              title={item.title}
-              description={""}
+              img={project.imgProject}
+              to={project.detail}
+              title={project.title}
+              tags={project.tags}
             />
           </Grid>
-        ))} */}
+        ))}
       </Grid>
     </section>
   );

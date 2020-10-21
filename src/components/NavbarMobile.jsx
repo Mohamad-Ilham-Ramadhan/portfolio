@@ -12,7 +12,7 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "./icons/IconFacebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
-
+import scrollTo from "../utils/scrollTo";
 const useStyles = makeStyles((theme) => ({
   root: {
     listStyle: "none",
@@ -127,33 +127,60 @@ export default function NavbarMobile({ className }) {
         <div className={styles.menuOverlay}>
           <nav className={styles.navOverlay}>
             <li>
-              <a href="#">Home</a>
+              <a
+                href="#home"
+                onClick={(e) => {
+                  e.preventDefault();
+                  toggleOpen();
+                  scrollTo("home");
+                }}
+              >
+                Home
+              </a>
             </li>
             <li>
-              <a href="#">Projects</a>
+              <a
+                href="#projects"
+                onClick={(e) => {
+                  e.preventDefault();
+                  toggleOpen();
+                  scrollTo("projects");
+                }}
+              >
+                Projects
+              </a>
             </li>
             <li>
-              <a href="#">About</a>
+              <a
+                href="#about-me"
+                onClick={(e) => {
+                  e.preventDefault();
+                  toggleOpen();
+                  scrollTo("about-me");
+                }}
+              >
+                About
+              </a>
             </li>
           </nav>
           <ul className={styles.sosmedOverlay}>
             <li>
-              <a href="#">
+              <a href="https://github.com/Mohamad-Ilham-Ramadhan">
                 <GitHubIcon />
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="https://www.instagram.com/mhmd_ilham_rmdhn/">
                 <InstagramIcon />
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="https://web.facebook.com/profile.php?id=100008333649476&ref=bookmarks">
                 <FacebookIcon />
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="https://twitter.com/milhamr_">
                 <TwitterIcon />
               </a>
             </li>

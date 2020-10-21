@@ -8,12 +8,8 @@ import Link from "@material-ui/core/Link";
 import Heading from "./Heading";
 import PowersDetail from "./PowersDetail";
 import claw from "../images/claw.svg";
-// sosmed icons
-import GitHubIcon from "@material-ui/icons/GitHub";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import FacebookIcon from "./icons/IconFacebook";
-import InstagramIcon from "@material-ui/icons/Instagram";
-// sosmed icons <end>
+
+// powers images
 import htmlImg from "../images/html.svg";
 import cssImg from "../images/css.svg";
 import javascriptImg from "../images/javascript.svg";
@@ -112,22 +108,7 @@ const useStyles = makeStyles((theme) => ({
       opacity: 0,
     },
   },
-  sosmed: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
 
-    "& .sosmed-icon": {
-      marginRight: 24,
-      color: "white",
-      "&:last-child": {
-        marginRight: 0,
-      },
-      "& svg": {
-        fontSize: "2rem",
-      },
-    },
-  },
   animation: {
     "&-enter": {
       opacity: 0,
@@ -285,20 +266,7 @@ export default function Powers() {
           </div>
         </Grid>
       </Grid>
-      <div className={styles.sosmed}>
-        <Link className="sosmed-icon" href="#">
-          <GitHubIcon />
-        </Link>
-        <Link className="sosmed-icon" href="#">
-          <TwitterIcon />
-        </Link>
-        <Link className="sosmed-icon" href="#">
-          <FacebookIcon />
-        </Link>
-        <Link className="sosmed-icon" href="#">
-          <InstagramIcon />
-        </Link>
-      </div>
+
       <PowersDetail
         open={open}
         onClose={onClosePowerDetail}

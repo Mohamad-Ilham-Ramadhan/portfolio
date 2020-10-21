@@ -6,7 +6,11 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Heading from "./Heading";
 import Powers from "./Powers";
-
+// sosmed icons
+import GitHubIcon from "@material-ui/icons/GitHub";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import FacebookIcon from "./icons/IconFacebook";
+import InstagramIcon from "@material-ui/icons/Instagram";
 // images
 import arrowMyPowers from "../images/arrow-my-powers.svg";
 import claw from "../images/claw.svg";
@@ -33,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 24,
     fontWeight: 700,
     color: theme.palette.primary.main,
-    marginBottom: 72,
     lineHeight: 0.8,
     [theme.breakpoints.up("sm")]: {
       fontSize: 32,
@@ -81,6 +84,20 @@ const useStyles = makeStyles((theme) => ({
       opacity: 0.5,
     },
   },
+  sosmed: {
+    marginBottom: 72,
+
+    "& .sosmed-icon": {
+      marginRight: 24,
+      color: "white",
+      "&:last-child": {
+        marginRight: 0,
+      },
+      "& svg": {
+        fontSize: "2rem",
+      },
+    },
+  },
 }));
 
 export default function AboutMe() {
@@ -117,6 +134,29 @@ export default function AboutMe() {
       <Typography className={styles.passion} component="h4">
         Front-end Web Developer
       </Typography>
+      <div className={styles.sosmed}>
+        <a
+          className="sosmed-icon"
+          href="https://github.com/Mohamad-Ilham-Ramadhan"
+        >
+          <GitHubIcon />
+        </a>
+        <a className="sosmed-icon" href="https://twitter.com/milhamr_">
+          <TwitterIcon />
+        </a>
+        <a
+          className="sosmed-icon"
+          href="https://web.facebook.com/profile.php?id=100008333649476&ref=bookmarks"
+        >
+          <FacebookIcon />
+        </a>
+        <a
+          className="sosmed-icon"
+          href="https://www.instagram.com/mhmd_ilham_rmdhn/"
+        >
+          <InstagramIcon />
+        </a>
+      </div>
       <Grid container>
         <Grid item xs={12} md={6}>
           <Typography className={styles.description}>

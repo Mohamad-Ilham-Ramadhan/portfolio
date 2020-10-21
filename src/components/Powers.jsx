@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
   shade: {
     width: "100%",
     position: "absolute",
+    zIndex: -1,
     top: 0,
     left: 0,
     transform: "translateY(-90%)",

@@ -54,7 +54,7 @@ export default function NabarRight() {
         <img src={imgCircle} alt="" />
       </li>
       <li>
-        <a href="#">Portfolio</a>
+        <a href="#">Projects</a>
         <img src={imgCircle} alt="" />
       </li>
       <li>

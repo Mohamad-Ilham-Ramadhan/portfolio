@@ -120,22 +120,25 @@ export default function AboutMe() {
       <Grid container>
         <Grid item xs={12} md={6}>
           <Typography className={styles.description}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
-            numquam praesentium dignissimos molestias eos ipsa. Saepe odit
-            quidem ex eligendi iusto! Totam possimus cumque esse sit, iusto
-            debitis aperiam quo!
+            My name is Mohamad Ilham Ramadhan I was born in Serang 31 January
+            1997. Currently live in Serang Banten. I have an associate degree in
+            informatics management of Polytechnic LP3i Bandung.
+          </Typography>
+
+          <Typography className={styles.description}>
+            I'm a self-taught front-end web developer, very passionate to learn
+            a new thing especially in programming world. I improve my skill by
+            learning the fundamentals of programming language, make sure the
+            foundation is pretty solid then making projects from coding
+            challenge sites like{" "}
+            <a href="https://www.frontendmentor.io">frontendmentor.io</a> ,{" "}
+            <a href="https://devchallenges.io/">devchallanges.io</a>.
           </Typography>
           <Typography className={styles.description}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
-            numquam praesentium dignissimos molestias eos ipsa. className=
-            {styles.description} Saepe odit quidem ex eligendi iusto! Totam
-            possimus cumque esse sit, iusto debitis aperiam quo!
-          </Typography>
-          <Typography className={styles.description}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
-            numquam praesentium dignissimos molestias eos ipsa. Saepe odit
-            quidem ex eligendi iusto! Totam possimus cumque esse sit, iusto
-            debitis aperiam quo!
+            My style in writing code is "make it work, make it right, make it
+            fast". First, I want to make sure the minimum functionality of an
+            app work, and then make it clean, human-readable, scalable, get rid
+            of redundant code, and then make it run faster but it's optional.
           </Typography>
         </Grid>
         <Grid className={styles.gridArrow} item xs={12} md={6}>

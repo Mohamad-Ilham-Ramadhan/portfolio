@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
       color: "white",
       backgroundImage: `linear-gradient(to right, ${theme.palette.neutral.darkBlue}, ${theme.palette.neutral.veryDarkBlue})`,
     },
+    a: {
+      color: theme.palette.primary.main,
+    },
   },
 }));
 export default function App() {

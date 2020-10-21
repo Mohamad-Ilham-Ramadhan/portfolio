@@ -51,7 +51,7 @@ export default function NabarTop({ className }) {
         <img src={imageCircle} alt="" />
       </li>
       <li>
-        <Link to="/">Portfolio</Link>
+        <Link to="/">Projects</Link>
         <img src={imageCircle} alt="" />
       </li>
       <li>

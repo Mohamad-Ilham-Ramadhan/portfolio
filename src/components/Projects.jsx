@@ -86,7 +86,7 @@ export default function Projects() {
     setInitialSlide(activeIndex);
   }
   return (
-    <section className={styles.root}>
+    <section id="projects" className={styles.root}>
       <Heading className={styles.heading}>Projects</Heading>
       {/* <Typography className={styles.subHeading} variant="h3">
         Featured

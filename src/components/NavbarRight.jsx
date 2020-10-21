@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import imgCircle from "../images/circle.svg";
+import scrollTo from "../utils/scrollTo";
 const useStyles = makeStyles((theme) => ({
   root: {
     writingMode: "vertical-lr",
@@ -47,18 +48,43 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NabarRight() {
   const styles = useStyles();
+
   return (
     <nav className={styles.root}>
       <li>
-        <a href="#">Home</a>
+        <a
+          href="#home"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollTo("home");
+          }}
+        >
+          Home
+        </a>
         <img src={imgCircle} alt="" />
       </li>
       <li>
-        <a href="#">Projects</a>
+        <a
+          href="#projects"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollTo("projects");
+          }}
+        >
+          Projects
+        </a>
         <img src={imgCircle} alt="" />
       </li>
       <li>
-        <a href="#">About me</a>
+        <a
+          href="#about-me"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollTo("about-me");
+          }}
+        >
+          About me
+        </a>
         <img src={imgCircle} alt="" />
       </li>
     </nav>

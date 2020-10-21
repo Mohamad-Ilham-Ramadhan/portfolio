@@ -216,7 +216,7 @@ export default function Home() {
   const theme = useTheme();
   const upMd = useMediaQuery(theme.breakpoints.up("md"));
   return (
-    <section className={styles.root}>
+    <section id="home" className={styles.root}>
       {/* {!upMd && <NavbarMobile className={styles.navbarMobile} />} */}
       <Grid container className={styles.gridContianer}>
         <Grid item xs={12} md={6}>

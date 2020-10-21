@@ -7,6 +7,9 @@ import Landing from "./pages/Landing";
 import Projects from "./Projects";
 const useStyles = makeStyles((theme) => ({
   "@global": {
+    // html: {
+    //   scrollBehavior: "smooth",
+    // },
     body: {
       color: "white",
       backgroundImage: `linear-gradient(to right, ${theme.palette.neutral.darkBlue}, ${theme.palette.neutral.veryDarkBlue})`,

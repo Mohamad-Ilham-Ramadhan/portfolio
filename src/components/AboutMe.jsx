@@ -109,7 +109,7 @@ export default function AboutMe() {
   }, []);
 
   return (
-    <section className={styles.root}>
+    <section id="about-me" className={styles.root}>
       <Heading className={styles.heading}>About me</Heading>
       <Typography className={styles.name} component="h3">
         Mohamad Ilham Ramadhan

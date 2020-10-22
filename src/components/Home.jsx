@@ -4,7 +4,6 @@ import anime from "animejs";
 import { makeStyles, useTheme, useMediaQuery } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import NavbarMobile from "./NavbarMobile";
 import imgMouseScrollDown from "../images/mouse-scroll-down.svg";
 import triangleBlue from "../images/triangle-blue.svg";
 import trianglePinkSmall from "../images/triangle-pink-small.svg";
@@ -279,6 +278,12 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  bacot: {
+    animation: "$floating-mobile 5s infinite alternate-reverse",
+    [theme.breakpoints.up("md")]: {
+      animation: "$floating 5s infinite alternate-reverse",
+    },
+  },
   scrollDown: {
     display: "none",
     position: "absolute",
@@ -362,7 +367,6 @@ export default function Home() {
   return (
     <section id="home" className={styles.root}>
       {/* <div className={styles.curtain}></div> */}
-      {/* {!upMd && <NavbarMobile className={styles.navbarMobile} />} */}
       <Grid container className={styles.gridContianer}>
         <Grid item xs={12} md={6}>
           <div className={styles.wrapperHello}>
@@ -407,7 +411,7 @@ export default function Home() {
         <Grid item xs={12} md={6}>
           <div ref={trianglesRef} className={styles.triangles}>
             <div className="wrapper">
-              <Typography component="p">
+              <Typography className={styles.bacot} component="p">
                 Front-end web developer.
                 <br /> Turn design into code into <br /> great UI fueled by
                 coffee.

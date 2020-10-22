@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     color: theme.palette.primary.main,
     lineHeight: 0.8,
+    marginBottom: 16,
     [theme.breakpoints.up("sm")]: {
       fontSize: 32,
       lineHeight: "unset",
@@ -86,7 +87,6 @@ const useStyles = makeStyles((theme) => ({
   },
   sosmed: {
     marginBottom: 72,
-
     "& .sosmed-icon": {
       marginRight: 24,
       color: "white",
@@ -178,7 +178,7 @@ export default function AboutMe() {
             My style in writing code is "make it work, make it right, make it
             fast". First, I want to make sure the minimum functionality of an
             app work, and then make it clean, human-readable, scalable, get rid
-            of redundant code, and then make it run faster but it's optional.
+            of redundant code, and then make it run faster (optional).
           </Typography>
         </Grid>
         <Grid className={styles.gridArrow} item xs={12} md={6}>

@@ -70,15 +70,12 @@ const useStyles = makeStyles((theme) => ({
     "& .swiper-wrapper": {
       overflow: "hidden",
     },
-    "& .project-title": {
+    "& .project-title-swiper": {
       position: "absolute",
       top: 69,
       zIndex: 20,
       fontSize: 56,
       fontWeight: 700,
-      // [theme.breakpoints.up("md")]: {
-      //   fontSize: 56,
-      // },
       "@media (min-width: 1100px)": {
         fontSize: 72,
       },
@@ -213,18 +210,18 @@ function SwiperProjects({
   activeProjectSlider,
   changeActiveSlider,
 }) {
+  const styles = useStyles();
+  const theme = useTheme();
+  const upLg = useMediaQuery(theme.breakpoints.up("lg"));
   useEffect(() => {
     anime({
-      targets: ".project-title",
+      targets: ".project-title-swiper",
       translateX: [-100, 0],
       translateY: [-30, 0],
       opacity: [0, 1],
       duration: 1500,
     });
   }, [activeProjectSlider.title]);
-  const styles = useStyles();
-  const theme = useTheme();
-  const upLg = useMediaQuery(theme.breakpoints.up("lg"));
   return (
     <Swiper
       className={clsx(styles.swiper, className)}
@@ -425,7 +422,7 @@ function SwiperProjects({
       <img className={styles.plus1} src={plusBlue} alt="" />
       <img className={styles.circle1} src={circlePink} alt="" />
 
-      <Typography className="project-title" variant="h4">
+      <Typography className="project-title-swiper" variant="h4">
         {activeProjectSlider.title}
       </Typography>
       <div className="project-actions">

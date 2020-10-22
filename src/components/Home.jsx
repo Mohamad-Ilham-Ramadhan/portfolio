@@ -340,44 +340,24 @@ export default function Home() {
   const theme = useTheme();
   const upMd = useMediaQuery(theme.breakpoints.up("md"));
   useEffect(() => {
-    setTimeout(() => {
+    const parallax = () => {
       const fadeOutUntil = document.getElementById("projects").offsetTop;
-      window.addEventListener("scroll", function (e) {
-        helloRef.current.style.transform = `translateY(${
-          window.pageYOffset / 3
-        }px)`;
-        hRef.current.style.transform = `translateY(${
-          window.pageYOffset / 8
-        }px)`;
-        iRef.current.style.transform = `translateY(${
-          window.pageYOffset / 7
-        }px)`;
-        lRef.current.style.transform = `translateY(${
-          window.pageYOffset / 6.5
-        }px)`;
-        mRef.current.style.transform = `translateY(${
-          window.pageYOffset / 9
-        }px)`;
-        h2Ref.current.style.transform = `translateY(${
-          window.pageYOffset / 10
-        }px)`;
-        aRef.current.style.transform = `translateY(${
-          window.pageYOffset / 7.5
-        }px)`;
-        trianglesRef.current.style.transform = `translateY(${
-          window.pageYOffset / 3
-        }px)`;
-        scrollDownRef.current.style.transform = `translateY(${
-          window.pageYOffset / 4
-        }px)`;
-        // harus 0 ketika pageYOffset = $projects.offsetTop
-        helloRef.current.style.opacity = 1 - window.pageYOffset / fadeOutUntil;
-        trianglesRef.current.style.opacity =
-          1 - window.pageYOffset / fadeOutUntil;
-        scrollDownRef.current.style.opacity =
-          1 - window.pageYOffset / fadeOutUntil;
-      });
+      helloRef.current.style.transform = `translateY(${
+        window.pageYOffset / 3
+      }px)`;
+      // harus 0 ketika pageYOffset = $projects.offsetTop
+      helloRef.current.style.opacity = 1 - window.pageYOffset / fadeOutUntil;
+      trianglesRef.current.style.opacity =
+        1 - window.pageYOffset / fadeOutUntil;
+      scrollDownRef.current.style.opacity =
+        1 - window.pageYOffset / fadeOutUntil;
+    };
+    setTimeout(() => {
+      window.addEventListener("scroll", parallax);
     }, 5);
+    return () => {
+      window.removeEventListener("scroll", parallax);
+    };
   }, []);
   return (
     <section id="home" className={styles.root}>

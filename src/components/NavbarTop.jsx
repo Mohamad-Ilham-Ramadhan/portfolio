@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import imageCircle from "../images/circle.svg";
+import scrollTo from "../utils/scrollTo";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: "none",
         fontSize: 16,
         fontWeight: 600,
-        // textTransform: "uppercase",
+        textTransform: "uppercase",
       },
     },
   },
@@ -44,18 +45,29 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NabarTop({ className }) {
   const styles = useStyles();
+  function scrollToWait(id) {
+    setTimeout(() => {
+      scrollTo(id);
+    });
+  }
   return (
     <nav className={clsx(styles.root, className)}>
       <li>
-        <Link to="/">Home</Link>
+        <Link to="/home" onClick={() => scrollToWait("home")}>
+          Home
+        </Link>
         <img src={imageCircle} alt="" />
       </li>
       <li>
-        <Link to="/">Projects</Link>
+        <Link to="/projects" onClick={() => scrollToWait("projects")}>
+          Projects
+        </Link>
         <img src={imageCircle} alt="" />
       </li>
       <li>
-        <Link to="/">About me</Link>
+        <Link to="/about-me" onClick={() => scrollToWait("about-me")}>
+          About me
+        </Link>
         <img src={imageCircle} alt="" />
       </li>
     </nav>

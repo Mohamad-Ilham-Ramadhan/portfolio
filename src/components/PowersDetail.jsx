@@ -176,7 +176,6 @@ export default function PowersDetail({
   const styles = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  console.log(isMobile);
   return (
     <div>
       <CSSTransition

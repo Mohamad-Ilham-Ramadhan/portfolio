@@ -31,10 +31,10 @@ import imgJobListingMobile from "../images/slider-desktop/job-list-mobile.svg";
 // actions:
 import changeActiveSlider from "../config/actions/changeActiveSlider";
 //  swiper:
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
-// import "swiper/swiper-bundle.min.css"; // for production only (navigation dan pagination scss nya nge bug)
+// import "swiper/swiper.scss";
+// import "swiper/components/navigation/navigation.scss";
+// import "swiper/components/pagination/pagination.scss";
+import "swiper/swiper-bundle.min.css"; // for production only (navigation dan pagination scss nya nge bug)
 // Swiper's component initialization
 SwiperCore.use([Navigation, Pagination]);
 

@@ -412,8 +412,8 @@ export default function Home() {
           <div ref={trianglesRef} className={styles.triangles}>
             <div className="wrapper">
               <Typography className={styles.bacot} component="p">
-                Front-end web developer.
-                <br /> Turn design into code into <br /> great UI fueled by
+                Full stack Web developer.
+                <br />Build efficient system <br /> Turn design into optimize UI <br /> fueled by
                 coffee.
               </Typography>
               <img className="triangle-blue" src={triangleBlue} alt="" />

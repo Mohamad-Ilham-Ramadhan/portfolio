@@ -23,6 +23,8 @@ import imgPingSingle from "../images/project-imgs/ping-single-column.svg";
 import imgFyloData from "../images/project-imgs/fylo-data-storage-component.svg";
 import { moreProjects } from "../config/data";
 
+console.log(moreProjects);
+
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",

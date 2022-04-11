@@ -3,6 +3,10 @@ import imgRockPaperScissors from "../images/slider-mobile/rock-paper-scissors.sv
 import imgIpAddressTracker from "../images/slider-mobile/ip-address-tracker.svg";
 import imgJobList from "../images/slider-mobile/job-list-with-filtering.svg";
 //Desktop slider's imgs:
+import imgInventoryDesktop from "../images/slider-desktop/inventory-desktop.png";
+import imgEventshipDesktop from "../images/slider-desktop/eventship-desktop.png";
+import imgEventshipMobile from "../images/slider-desktop/eventship-mobile.png";
+import imgInventoryMobile from "../images/slider-desktop/inventory-mobile.png";
 import imgRestCountriesDesktop from "../images/slider-desktop/rest-api-desktop.svg";
 import imgRestCountriesMobile from "../images/slider-desktop/rest-api-mobile.svg";
 import imgRestRockPaperScissorsDesktop from "../images/slider-desktop/rock-paper-scissors-desktop.svg";
@@ -12,6 +16,9 @@ import imgRestIpAddressMobile from "../images/slider-desktop/ip-address-tracker-
 import imgJobListingDesktop from "../images/slider-desktop/job-list-desktop.svg";
 import imgJobListingMobile from "../images/slider-desktop/job-list-mobile.svg";
 // Image project detail
+import imgEventshipDetailDesktop from "../images/project-detail/eventship-desktop.png";
+import imgEventshipDetailMobile from "../images/project-detail/eventship-mobile.png";
+import imgInventoryDetailDesktop from "../images/project-detail/inventory-desktop.png";
 import imgRestCountriesDetailDesktop from "../images/project-detail/rest-countries-desktop.svg";
 import imgRestCountriesDetailMobile from "../images/project-detail/rest-countries-mobile.svg";
 import imgRockPaperScissorsDetailDesktop from "../images/project-detail/rock-paper-scissors-desktop.svg";
@@ -51,7 +58,63 @@ import imgIntroComponent from "../images/project-imgs/intro-component.svg";
 import imgPingSingle from "../images/project-imgs/ping-single-column.svg";
 import imgShortly from "../images/project-imgs/shortly-url-shortening.svg";
 import imgSinglePrice from "../images/project-imgs/single-price-grid.svg";
+// gallery
+import imgInventoryGallery1 from "../images/project-detail/gallery/inventory/login.png";
+import imgInventoryGallery2 from "../images/project-detail/gallery/inventory/bpp.png";
+import imgInventoryGallery3 from "../images/project-detail/gallery/inventory/bpp-detail.png";
+import imgInventoryGallery4 from "../images/project-detail/gallery/inventory/cutoff.png";
+import imgInventoryGallery5 from "../images/project-detail/gallery/inventory/dashboard.png";
+import imgInventoryGallery6 from "../images/project-detail/gallery/inventory/opname-progress.png";
 const projects = [
+  {
+    id: -2,
+    title: "Inventory System",
+    description:
+      "This project is a freelance project for local company, build using Laravel and MySQL. Features inclues CRUD, PDf and CSV reporting, data recap monthly using Laravel Scheduler and linux cronjob, complex stock opname logic but simple user experience and many more.",
+    builtWith: [
+      "Laravel",
+      "MySQL",
+      "JQuery",
+    ],
+    heading: "Invenity",
+    mobileImg: imgRestCountries,
+    imgDesktop: imgInventoryDesktop,
+    imgMobile: imgInventoryMobile,
+    imgDetailDesktop: imgInventoryDetailDesktop,
+    imgDetailMobile: imgInventoryDetailDesktop,
+    github:
+      null,
+    visit:
+      null,
+    detail: "Invenity",
+    gallery: [
+      {img: imgInventoryGallery1, title: 'Login'},
+      {img: imgInventoryGallery2, title: 'BPP'},
+      {img: imgInventoryGallery3, title: 'BPP Detail'},
+      {img: imgInventoryGallery4, title: 'Cutoff Monthly'},
+      {img: imgInventoryGallery5, title: 'Dashboard'},
+      {img: imgInventoryGallery6, title: 'Stock Opname Progress'},
+    ],
+  },
+  {
+    id: -1,
+    title: "Eventship Landing Page",
+    description:
+      "This project is a freelance project for startup of friend of mine, build using Reactjs and Material UI. I demanded implementing given design and it includes mobile version also.",
+    builtWith: [
+      "Reactjs",
+      "Material UI",
+    ],
+    heading: "Eventship",
+    mobileImg: imgRestCountries,
+    imgDesktop: imgEventshipDesktop,
+    imgMobile: imgEventshipMobile,
+    imgDetailDesktop: imgEventshipDetailDesktop,
+    imgDetailMobile: imgEventshipDetailMobile,
+    github:null,
+    visit:'https://eventship.vercel.app/',
+    detail: "eventship",
+  },
   {
     id: 0,
     title: "Rest Countires API",

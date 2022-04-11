@@ -20,6 +20,9 @@ import terminalImg from "../images/terminal.svg";
 import webpackImg from "../images/webpack.svg";
 import gitImg from "../images/git-logo.svg";
 import npmImg from "../images/npm.svg";
+import phpImg from '../images/php-logo.png';
+import mysqlImg from '../images/mysql-logo.png';
+import laravelImg from '../images/laravel-logo.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -131,12 +134,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const fundamentalImgs = [
-  { img: htmlImg, name: "HTML5" },
-  { img: cssImg, name: "CSS3" },
+  { img: phpImg, name: "PHP" },
+  { img: mysqlImg, name: "MySQL" },
   { img: javascriptImg, name: "JavaScript" },
   { img: sassImg, width: 100, mobileWidth: 55, name: "Sass" },
+  { img: cssImg, name: "CSS3" },
+  { img: htmlImg, name: "HTML5" },
 ];
 const frameworkImgs = [
+  { img: laravelImg, width: 100, mobileWidth: 50, name: "Laravel" },
   { img: reactImg, width: 100, mobileWidth: 50, name: "React" },
   { img: reduxImg, name: "Redux" },
   { img: bootstrapImg, name: "Bootstrap" },

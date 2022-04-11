@@ -189,7 +189,7 @@ export default function Powers() {
   return (
     <div className={styles.powers}>
       <img className={styles.shade} src={shade} alt="" />
-      <Heading className="powers-heading">Powers</Heading>
+      <Heading className="powers-heading">Skill</Heading>
       <Grid className="powers-grid-container" container>
         <Grid
           onMouseEnter={onPowerMouseEnter}

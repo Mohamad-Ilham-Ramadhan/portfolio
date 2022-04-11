@@ -426,22 +426,26 @@ function SwiperProjects({
         {activeProjectSlider.title}
       </Typography>
       <div className="project-actions">
-        <ButtonPill
-          component="a"
-          href={activeProjectSlider.visit}
-          size={!upLg ? "small" : null}
-          endIcon={<IconVisitWeb />}
-        >
-          Visit web
-        </ButtonPill>
-        <ButtonPill
-          component="a"
-          href={activeProjectSlider.github}
-          size={!upLg ? "small" : null}
-          endIcon={<IconGithub />}
-        >
-          Source code
-        </ButtonPill>
+        {activeProjectSlider.visit && 
+            <ButtonPill
+              component="a"
+              href={activeProjectSlider.visit}
+              size={!upLg ? "small" : null}
+              endIcon={<IconVisitWeb />}
+            >
+              Visit web
+            </ButtonPill>
+        }
+        {activeProjectSlider.github &&
+          <ButtonPill
+            component="a"
+            href={activeProjectSlider.github}
+            size={!upLg ? "small" : null}
+            endIcon={<IconGithub />}
+          >
+            Source code
+          </ButtonPill>
+        }
         <ButtonPill
           size={!upLg ? "small" : null}
           endIcon={<IconMoreHoriz />}

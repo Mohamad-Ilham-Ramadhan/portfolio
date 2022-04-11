@@ -8,9 +8,8 @@ import Typography from "@material-ui/core/Typography";
 import Heading from "../Heading";
 import NavbarTop from "../NavbarTop";
 import Grid from "@material-ui/core/Grid";
+import Modal from '@material-ui/core/Modal';
 import titikDuaImg from "../../images/titik-dua.svg";
-import imageDetailDesktop from "../../images/shortly-detail-desktop.svg";
-import imageDetailMobile from "../../images/shortly-detail-mobile.svg";
 import ButtonPill from "../buttons/ButtonPill";
 import IconVisitWeb from "../icons/IconVisitWeb";
 import IconGithub from "@material-ui/icons/GitHub";
@@ -145,6 +144,7 @@ function ProjectDetail({
   useEffect(() => {
     selectProjectDetail(project);
   }, []);
+  console.log('project detail:', projectDetail);
   return (
     <div className={styles.root}>
       {downSm ? (
@@ -215,22 +215,26 @@ function ProjectDetail({
               className={styles.wrapperBtns}
               style={{ justifyContent: "flex-start" }}
             >
-              <ButtonPill
-                component="a"
-                href={projectDetail.visit}
-                size="small"
-                endIcon={<IconVisitWeb />}
-              >
-                Visit
-              </ButtonPill>
-              <ButtonPill
-                component="a"
-                href={projectDetail.github}
-                size="small"
-                endIcon={<IconGithub />}
-              >
-                Source
-              </ButtonPill>
+              {projectDetail.visit && 
+                <ButtonPill
+                  component="a"
+                  href={projectDetail.visit}
+                  size="small"
+                  endIcon={<IconVisitWeb />}
+                >
+                  Visit
+                </ButtonPill>
+              }
+              {projectDetail.github && 
+                <ButtonPill
+                  component="a"
+                  href={projectDetail.github}
+                  size="small"
+                  endIcon={<IconGithub />}
+                >
+                  Source
+                </ButtonPill>
+              }
             </div>
           </Grid>
           {!downSm && (
@@ -274,6 +278,26 @@ function ProjectDetail({
               </div>
             </Grid>
           )}
+          {'gallery' in projectDetail && projectDetail.gallery !== null && projectDetail.gallery.length > 0 &&
+            <>
+              <Typography className={styles.builtWith} variant="h3">
+                Gallery{" "}
+                <span>
+                  <img src={titikDuaImg} alt="" />
+                </span>
+              </Typography>
+              <Grid container spacing={2}>
+                {projectDetail.gallery.map( item => (
+                  <Grid item xs={4}>
+                    <div>
+                      <img src={item.img} alt={item.img} style={{width: '100%'}}/>
+                      <div>{item.title}</div>
+                    </div>
+                  </Grid>
+                ))}
+              </Grid>
+            </>
+          }
         </Grid>
       </div>
     </div>

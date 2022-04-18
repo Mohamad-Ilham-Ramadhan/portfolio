@@ -187,7 +187,7 @@ export default function Powers() {
     });
   }
   return (
-    <div className={styles.powers}>
+    <div className={styles.powers} id="powers">
       <img className={styles.shade} src={shade} alt="" />
       <Heading className="powers-heading">Skill</Heading>
       <Grid className="powers-grid-container" container>

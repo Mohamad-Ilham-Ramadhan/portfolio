@@ -186,7 +186,7 @@ export default function AboutMe() {
             My powers
           </div>
           <img ref={arrowRef} className="arrow" src={arrowMyPowers} alt="" />
-          <a className="trigger" href="#"></a>
+          <a className="trigger" href="#powers"></a>
           <img className="bg-claw" src={claw} alt="" />
         </Grid>
       </Grid>
